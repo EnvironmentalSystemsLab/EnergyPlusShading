@@ -1,4 +1,4 @@
-Program Version	EnergyPlus, Version 25.2.0-6c9be5cdbe, YMD=2025.10.31 13:35
+Program Version	EnergyPlus, Version 25.2.0-6c9be5cdbe, YMD=2025.10.31 13:45
 Tabular Output Report in Format: 	Tab
 
 Building:	Simple One Zone (Wireframe DXF)
@@ -193,7 +193,7 @@ FOR:	Entire Facility
 General
 
 		Value
-	Program Version and Build	EnergyPlus, Version 25.2.0-6c9be5cdbe, YMD=2025.10.31 13:35
+	Program Version and Build	EnergyPlus, Version 25.2.0-6c9be5cdbe, YMD=2025.10.31 13:45
 	RunPeriod	RUN PERIOD 1
 	Weather File	Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
 	Latitude [deg]	41.98
@@ -705,7 +705,7 @@ Environment:WarmupDays
 
 		NumberofWarmupDays
 	1	22
-	2	17
+	2	16
 	3	20
 
 
@@ -732,9 +732,9 @@ Tabular Report
 Warmup Convergence Information
 
 		Zone Name	Environment Type/Name	Average Warmup Temperature Difference {deltaC}	Std Dev Warmup Temperature Difference {deltaC}	Max Temperature Pass/Fail Convergence	Min Temperature Pass/Fail Convergence	Average Warmup Load Difference {W}	Std Dev Warmup Load Difference {W}	Heating Load Pass/Fail Convergence	Cooling Load Pass/Fail Convergence
-	1	ZONE ONE	SizingPeriod: DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB	1.8059090963E-005	1.9808568225E-006	Pass	Pass	0.0000000000	0.0000000000	Pass	Pass
-	2	ZONE ONE	SizingPeriod: DENVER CENTENNIAL  GOLDEN   N ANN CLG 1% CONDNS DB=>MWB	7.9045266329E-002	3.4744254765E-002	Pass	Pass	0.0000000000	0.0000000000	Pass	Pass
-	3	ZONE ONE	RunPeriod: RUN PERIOD 1	3.9768868320E-002	3.7276004135E-002	Pass	Pass	0.0000000000	0.0000000000	Pass	Pass
+	1	ZONE ONE	SizingPeriod: DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB	1.8303609126E-005	2.0033988830E-006	Pass	Pass	0.0000000000	0.0000000000	Pass	Pass
+	2	ZONE ONE	SizingPeriod: DENVER CENTENNIAL  GOLDEN   N ANN CLG 1% CONDNS DB=>MWB	7.9186956269E-002	3.4793522854E-002	Pass	Pass	0.0000000000	0.0000000000	Pass	Pass
+	3	ZONE ONE	RunPeriod: RUN PERIOD 1	4.1043384628E-002	3.6580829551E-002	Pass	Pass	0.0000000000	0.0000000000	Pass	Pass
 
 
 ----------------------------------------------------------------------------------------------------
@@ -743,7 +743,7 @@ FOR:	Entire Facility
 Annual Heat Emissions Summary
 
 		Envelope Convection	Zone Exfiltration	Zone Exhaust Air	HVAC Relief Air	HVAC Reject Heat	Total
-	Heat Emissions [GJ]	651.66	0.00	0.00	0.00	0.00	651.66
+	Heat Emissions [GJ]	538.24	0.00	0.00	0.00	0.00	538.25
 
 
 ----------------------------------------------------------------------------------------------------
@@ -752,11 +752,11 @@ FOR:	Entire Facility
 Heat Index Hours
 
 		Safe (≤ 26.7°C) [hr]	Caution (> 26.7°C, ≤ 32.2°C) [hr]	Extreme Caution (> 32.2°C, ≤ 39.4°C) [hr]	Danger (> 39.4°C, ≤ 51.7°C) [hr]	Extreme Danger (> 51.7°C) [hr]
-	ZONE ONE	8375.25	384.75	0.00	0.00	0.00
-	Min	8375.25	384.75	0.00	0.00	0.00
-	Max	8375.25	384.75	0.00	0.00	0.00
-	Average	8375.25	384.75	0.00	0.00	0.00
-	Sum	8375.25	384.75	0.00	0.00	0.00
+	ZONE ONE	8454.00	306.00	0.00	0.00	0.00
+	Min	8454.00	306.00	0.00	0.00	0.00
+	Max	8454.00	306.00	0.00	0.00	0.00
+	Average	8454.00	306.00	0.00	0.00	0.00
+	Sum	8454.00	306.00	0.00	0.00	0.00
 
 
 Heat Index OccupantHours
@@ -782,11 +782,11 @@ Heat Index OccupiedHours
 Humidex Hours
 
 		Little to no Discomfort (≤ 29) [hr]	Some Discomfort (> 29, ≤ 40) [hr]	Great Discomfort; Avoid Exertion (> 40, ≤ 45) [hr]	Dangerous (> 45, ≤ 50) [hr]	Heat Stroke Quite Possible (> 50) [hr]
-	ZONE ONE	8757.50	2.50	0.00	0.00	0.00
-	Min	8757.50	2.50	0.00	0.00	0.00
-	Max	8757.50	2.50	0.00	0.00	0.00
-	Average	8757.50	2.50	0.00	0.00	0.00
-	Sum	8757.50	2.50	0.00	0.00	0.00
+	ZONE ONE	8760.00	0.00	0.00	0.00	0.00
+	Min	8760.00	0.00	0.00	0.00	0.00
+	Max	8760.00	0.00	0.00	0.00	0.00
+	Average	8760.00	0.00	0.00	0.00	0.00
+	Sum	8760.00	0.00	0.00	0.00	0.00
 
 
 Humidex OccupantHours

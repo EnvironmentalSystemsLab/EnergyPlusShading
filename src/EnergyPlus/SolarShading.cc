@@ -5070,6 +5070,7 @@ void FigureSunCosines(EnergyPlusData &state,
     state.dataBSDFWindow->SUNCOSTS(iTimeStep, iHour) = state.dataSolarShading->SUNCOS;
 }
 
+//ESL: Direct Sunlit Fractions
 void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const iTimeStep)
 {
 
@@ -10536,6 +10537,7 @@ void WindowGapAirflowControl(EnergyPlusData &state)
     } // End of zone loop
 }
 
+// ESL: Diffuse Sunlit Fractions
 void SkyDifSolarShading(EnergyPlusData &state)
 {
     std::cout << "SkyDifSolarShading: Start" << std::endl;
@@ -10673,7 +10675,7 @@ void SkyDifSolarShading(EnergyPlusData &state)
     std::cout << (state.dataSysVars->shadingMethod == ShadingMethod::Imported) << std::endl;
 
     // if ((state.dataSysVars->shadingMethod == ShadingMethod::Scheduled || state.dataSysVars->shadingMethod == ShadingMethod::Imported) &&
-    //     !state.dataGlobal->DoingSizing && state.dataGlobal->KindOfSim == Constant::KindOfSim::RunPeriodWeather) {
+        // !state.dataGlobal->DoingSizing && state.dataGlobal->KindOfSim == Constant::KindOfSim::RunPeriodWeather) {
     if ((state.dataSysVars->shadingMethod == ShadingMethod::Scheduled || state.dataSysVars->shadingMethod == ShadingMethod::Imported)) {
     // if (true) {
         // for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) {
