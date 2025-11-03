@@ -5164,7 +5164,7 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
         }
         // std::cout << "initialized dataSolarShading" << std::endl;
         if (state.dataSysVars->shadingMethod==ShadingMethod::Imported){
-            // std::cout << "using import" << std::endl;
+            std::cout << "using import" << std::endl;
             std::ifstream csvFile("~/solar_shading_attributes.csv");
             if (!csvFile.is_open()) {
                 ShowWarningError(state, "Could not open solar_shading_attributes.csv for reading.");
@@ -5190,7 +5190,7 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
                 csvFile.close();
             }
         } else{
-            // std::cout << "not using import" << std::endl;
+            std::cout << "not using import" << std::endl;
             for (int IPhi = 0; IPhi < NPhi; ++IPhi) { // Loop over patch altitude values
                 // std::cout << "IPhi: " << IPhi << "/" << NPhi << std::endl;
                 state.dataSolarShading->SUNCOS(3) = state.dataSolarShading->sin_Phi[IPhi];
@@ -10673,6 +10673,8 @@ void SkyDifSolarShading(EnergyPlusData &state)
 
     std::cout << (state.dataSysVars->shadingMethod == ShadingMethod::Scheduled) << std::endl;
     std::cout << (state.dataSysVars->shadingMethod == ShadingMethod::Imported) << std::endl;
+    std::cout << (!state.dataGlobal->DoingSizing) << std::endl;
+    std::cout << (state.dataGlobal->KindOfSim == Constant::KindOfSim::RunPeriodWeather) << std::endl;
 
     // if ((state.dataSysVars->shadingMethod == ShadingMethod::Scheduled || state.dataSysVars->shadingMethod == ShadingMethod::Imported) &&
         // !state.dataGlobal->DoingSizing && state.dataGlobal->KindOfSim == Constant::KindOfSim::RunPeriodWeather) {
@@ -10732,6 +10734,11 @@ void SkyDifSolarShading(EnergyPlusData &state)
                             double surfDifShdgRatioHoriz = std::stod(surfDifShdgRatioHorizStr);
                             double viewFactorSkyIR = std::stod(viewFactorSkyIRStr);
                             double viewFactorGroundIR = std::stod(viewFactorGroundIRStr);
+                            std::cout << surfNum << ", "
+                                      << surfDifShdgRatioIsoSky << ", "
+                                      << surfDifShdgRatioHoriz << ", "
+                                      << viewFactorSkyIR << ", "
+                                      << viewFactorGroundIR << std::endl;
                             
                             // Validate surface number range
                             if (surfNum >= 1 && surfNum <= s_surf->TotSurfaces) {
@@ -10742,6 +10749,8 @@ void SkyDifSolarShading(EnergyPlusData &state)
                                 if (isInExtList) {
                                     state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum) = surfDifShdgRatioIsoSky;
                                     state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) = surfDifShdgRatioHoriz;
+                                    std::cout << "SurfNum " << surfNum << " state.dataSolarShading->SurfDifShdgRatioIsoSky: " << state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum)
+                                            << " state.dataSolarShading->SurfDifShdgRatioHoriz: " << state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) << std::endl;
                                 }
                                 
                                 // Set view factors for all surfaces
@@ -10753,6 +10762,8 @@ void SkyDifSolarShading(EnergyPlusData &state)
                                 if (surface.SurfHasSurroundingSurfProperty) {
                                     surface.ViewFactorGroundIR = 1.0 - surface.ViewFactorSkyIR - surface.ViewFactorSrdSurfs;
                                 }
+                                std::cout << "SurfNum " << surfNum << " ViewFactorSkyIR: " << surface.ViewFactorSkyIR
+                                        << " ViewFactorGroundIR: " << surface.ViewFactorGroundIR << std::endl;
                             }
                         } catch (const std::exception& e) {
                             ShowWarningError(state, "Error parsing CSV line: " + line + ". Error: " + e.what());
@@ -10761,6 +10772,13 @@ void SkyDifSolarShading(EnergyPlusData &state)
                 }
                 csvFile.close();
                 std::cout << "Successfully loaded surface attributes from CSV file" << std::endl;
+
+                for (int surfNum : s_surf->AllExtSolAndShadingSurfaceList) {
+                    std::cout << "SurfNum " << surfNum << " state.dataSolarShading->SurfDifShdgRatioIsoSky: " << state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum)
+                            << " state.dataSolarShading->SurfDifShdgRatioHoriz: " << state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) << std::endl;
+                    std::cout << "SurfNum " << surfNum << " ViewFactorSkyIR: " << s_surf->Surface(surfNum).ViewFactorSkyIR
+                            << " ViewFactorGroundIR: " << s_surf->Surface(surfNum).ViewFactorGroundIR << std::endl;
+                }
             }
         }
     else{
@@ -10826,6 +10844,8 @@ void SkyDifSolarShading(EnergyPlusData &state)
                 state.dataSolarShading->SurfDifShdgRatioHoriz(SurfNum) =
                     (state.dataSolarShading->SurfWithShdgHoriz(SurfNum)) / (state.dataSolarShading->SurfWoShdgHoriz(SurfNum) + Eps);
             }
+            std::cout << "SurfNum " << SurfNum << " state.dataSolarShading->SurfDifShdgRatioIsoSky: " << state.dataSolarShading->SurfDifShdgRatioIsoSky(SurfNum)
+                      << " state.dataSolarShading->SurfDifShdgRatioHoriz: " << state.dataSolarShading->SurfDifShdgRatioHoriz(SurfNum) << std::endl;
         }
 
         // Get IR view factors. An exterior surface can receive IR radiation from
@@ -10849,6 +10869,8 @@ void SkyDifSolarShading(EnergyPlusData &state)
             if (surface.SurfHasSurroundingSurfProperty) {
                 surface.ViewFactorGroundIR = 1.0 - surface.ViewFactorSkyIR - surface.ViewFactorSrdSurfs;
             }
+            std::cout << "SurfNum " << SurfNum << " ViewFactorSkyIR: " << surface.ViewFactorSkyIR
+                      << " ViewFactorGroundIR: " << surface.ViewFactorGroundIR << std::endl;
         }
 
         //  DEALLOCATE(WithShdgIsoSky)
@@ -10863,8 +10885,13 @@ void SkyDifSolarShading(EnergyPlusData &state)
                     state.dataSolarShading->SurfDifShdgRatioIsoSky(SurfNum);
                 state.dataSolarShading->SurfDifShdgRatioHorizHRTS({1, state.dataGlobal->TimeStepsInHour}, {1, 24}, SurfNum) =
                     state.dataSolarShading->SurfDifShdgRatioHoriz(SurfNum);
+                std::cout << "SurfNum " << SurfNum << " DifShdgRatioIsoSkyHRTS: "
+                          << state.dataSolarShading->SurfDifShdgRatioIsoSkyHRTS({1, state.dataGlobal->TimeStepsInHour}, {1, 24}, SurfNum)
+                          << " DifShdgRatioHorizHRTS: " << state.dataSolarShading->SurfDifShdgRatioHorizHRTS({1, state.dataGlobal->TimeStepsInHour}, {1, 24}, SurfNum)
+                          << std::endl;
             }
         }
+        else {std::cout << "else" << std::endl;}
     }
 }
 

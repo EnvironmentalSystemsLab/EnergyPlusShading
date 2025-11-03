@@ -478,6 +478,3 @@ OtherEquipment,
     0;                       !- Fraction Lost
 
 Schedule:Constant,AlwaysOn,On/Off,1.0;
-
-Schedule:File:Shading,
-    test_file_1.csv; !- File Name
