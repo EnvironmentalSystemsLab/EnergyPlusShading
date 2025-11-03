@@ -377,60 +377,78 @@ BuildingSurface:Detailed,
 Output:Diagnostics,
     DisplayAdvancedReportVariables;  !- Key 1
 
-Output:Variable,*,Site Outdoor Air Drybulb Temperature,hourly;
-Output:Variable,*,Site Total Sky Cover,hourly;
-Output:Variable,*,Site Opaque Sky Cover,hourly;
-Output:Variable,*,Site Daylight Saving Time Status,daily;
-Output:Variable,*,Site Day Type Index,daily;
-Output:Variable,*,Zone Mean Air Temperature,hourly;
-Output:Variable,*,Zone Operative Temperature,hourly;
-Output:Variable,ZONE ONE,Zone Wetbulb Globe Temperature,hourly;
-Output:Variable,*,Zone Total Internal Latent Gain Energy,hourly;
-Output:Variable,*,Zone Mean Radiant Temperature,hourly;
-Output:Variable,*,Zone Air Heat Balance Surface Convection Rate,hourly;
-Output:Variable,*,Zone Air Heat Balance Air Energy Storage Rate,hourly;
-Output:Variable,*,Surface Inside Face Temperature,daily;
-Output:Variable,*,Surface Outside Face Temperature,daily;
-Output:Variable,*,Surface Inside Face Convection Heat Transfer Coefficient,daily;
-Output:Variable,*,Surface Outside Face Convection Heat Transfer Coefficient,daily;
-Output:Variable,*,Surface Inside Face Conduction Heat Transfer Rate,hourly;
-Output:Variable,*,Surface Inside Face Conduction Heat Gain Rate,hourly;
-Output:Variable,*,Surface Inside Face Conduction Heat Loss Rate,hourly;
-Output:Variable,*,Surface Inside Face Conduction Heat Transfer Rate per Area,hourly;
-Output:Variable,*,Surface Inside Face Conduction Heat Transfer Energy,hourly;
-Output:Variable,*,Surface Outside Face Conduction Heat Transfer Rate,hourly;
-Output:Variable,*,Surface Outside Face Conduction Heat Gain Rate,hourly;
-Output:Variable,*,Surface Outside Face Conduction Heat Loss Rate,hourly;
-Output:Variable,*,Surface Outside Face Conduction Heat Transfer Rate per Area,hourly;
-Output:Variable,*,Surface Outside Face Conduction Heat Transfer Energy,hourly;
-Output:Variable,*,Surface Average Face Conduction Heat Transfer Rate,hourly;
-Output:Variable,*,Surface Average Face Conduction Heat Gain Rate,hourly;
-Output:Variable,*,Surface Average Face Conduction Heat Loss Rate,hourly;
-Output:Variable,*,Surface Average Face Conduction Heat Transfer Rate per Area,hourly;
-Output:Variable,*,Surface Average Face Conduction Heat Transfer Energy,hourly;
-Output:Variable,*,Surface Heat Storage Rate,hourly;
-Output:Variable,*,Surface Heat Storage Gain Rate,hourly;
-Output:Variable,*,Surface Heat Storage Loss Rate,hourly;
-Output:Variable,*,Surface Heat Storage Rate per Area,hourly;
-Output:Variable,*,Surface Heat Storage Energy,hourly;
-Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Rate,hourly;
-Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Heat Gain Rate,hourly;
-Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Heat Loss Rate,hourly;
-Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Heat Gain Energy,hourly;
-Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Heat Loss Energy,hourly;
-Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Rate,hourly;
-Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Heat Gain Rate,hourly;
-Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Heat Loss Rate,hourly;
-Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Heat Gain Energy,hourly;
-Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Heat Loss Energy,hourly;
-Output:Variable,*,Other Equipment Total Heating Energy,monthly;
-Output:Variable,*,Zone Other Equipment Total Heating Energy,monthly;
-Output:VariableDictionary,IDF;
-Output:Surfaces:Drawing,dxf:wireframe;
-Output:Constructions,Constructions;
-Output:Meter:MeterFileOnly,ExteriorLights:Electricity,hourly;
-Output:Meter:MeterFileOnly,EnergyTransfer:Building,hourly;
-Output:Meter:MeterFileOnly,EnergyTransfer:Facility,hourly;
+! Output:Variable,*,Site Outdoor Air Drybulb Temperature,hourly;
+! Output:Variable,*,Site Total Sky Cover,hourly;
+! Output:Variable,*,Site Opaque Sky Cover,hourly;
+! Output:Variable,*,Site Daylight Saving Time Status,daily;
+! Output:Variable,*,Site Day Type Index,daily;
+! Output:Variable,*,Zone Mean Air Temperature,hourly;
+! Output:Variable,*,Zone Operative Temperature,hourly;
+! Output:Variable,ZONE ONE,Zone Wetbulb Globe Temperature,hourly;
+! Output:Variable,*,Zone Total Internal Latent Gain Energy,hourly;
+! Output:Variable,*,Zone Mean Radiant Temperature,hourly;
+! Output:Variable,*,Zone Air Heat Balance Surface Convection Rate,hourly;
+! Output:Variable,*,Zone Air Heat Balance Air Energy Storage Rate,hourly;
+! Output:Variable,*,Surface Inside Face Temperature,daily;
+! Output:Variable,*,Surface Outside Face Temperature,daily;
+! Output:Variable,*,Surface Inside Face Convection Heat Transfer Coefficient,daily;
+! Output:Variable,*,Surface Outside Face Convection Heat Transfer Coefficient,daily;
+! Output:Variable,*,Surface Inside Face Conduction Heat Transfer Rate,hourly;
+! Output:Variable,*,Surface Inside Face Conduction Heat Gain Rate,hourly;
+! Output:Variable,*,Surface Inside Face Conduction Heat Loss Rate,hourly;
+! Output:Variable,*,Surface Inside Face Conduction Heat Transfer Rate per Area,hourly;
+! Output:Variable,*,Surface Inside Face Conduction Heat Transfer Energy,hourly;
+! Output:Variable,*,Surface Outside Face Conduction Heat Transfer Rate,hourly;
+! Output:Variable,*,Surface Outside Face Conduction Heat Gain Rate,hourly;
+! Output:Variable,*,Surface Outside Face Conduction Heat Loss Rate,hourly;
+! Output:Variable,*,Surface Outside Face Conduction Heat Transfer Rate per Area,hourly;
+! Output:Variable,*,Surface Outside Face Conduction Heat Transfer Energy,hourly;
+! Output:Variable,*,Surface Average Face Conduction Heat Transfer Rate,hourly;
+! Output:Variable,*,Surface Average Face Conduction Heat Gain Rate,hourly;
+! Output:Variable,*,Surface Average Face Conduction Heat Loss Rate,hourly;
+! Output:Variable,*,Surface Average Face Conduction Heat Transfer Rate per Area,hourly;
+! Output:Variable,*,Surface Average Face Conduction Heat Transfer Energy,hourly;
+! Output:Variable,*,Surface Heat Storage Rate,hourly;
+! Output:Variable,*,Surface Heat Storage Gain Rate,hourly;
+! Output:Variable,*,Surface Heat Storage Loss Rate,hourly;
+! Output:Variable,*,Surface Heat Storage Rate per Area,hourly;
+! Output:Variable,*,Surface Heat Storage Energy,hourly;
+! Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Rate,hourly;
+! Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Heat Gain Rate,hourly;
+! Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Heat Loss Rate,hourly;
+! Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Heat Gain Energy,hourly;
+! Output:Variable,*,Zone Opaque Surface Inside Faces Conduction Heat Loss Energy,hourly;
+! Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Rate,hourly;
+! Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Heat Gain Rate,hourly;
+! Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Heat Loss Rate,hourly;
+! Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Heat Gain Energy,hourly;
+! Output:Variable,*,Zone Opaque Surface Outside Faces Conduction Heat Loss Energy,hourly;
+! Output:Variable,*,Other Equipment Total Heating Energy,monthly;
+! Output:Variable,*,Zone Other Equipment Total Heating Energy,monthly;
+! Output:VariableDictionary,IDF;
+! Output:Surfaces:Drawing,dxf:wireframe;
+! Output:Constructions,Constructions;
+! Output:Meter:MeterFileOnly,ExteriorLights:Electricity,hourly;
+! Output:Meter:MeterFileOnly,EnergyTransfer:Building,hourly;
+! Output:Meter:MeterFileOnly,EnergyTransfer:Facility,hourly;
+
+Output:Variable,*,Enclosure Windows Total Transmitted Solar Radiation Energy,hourly; !- Zone Sum [J]
+Output:Variable,*,Enclosure Exterior Windows Total Transmitted Beam Solar Radiation Energy,hourly; !- Zone Sum [J]
+Output:Variable,*,Enclosure Interior Windows Total Transmitted Beam Solar Radiation Energy,hourly; !- Zone Sum [J]
+Output:Variable,*,Enclosure Exterior Windows Total Transmitted Diffuse Solar Radiation Energy,hourly; !- Zone Sum [J]
+Output:Variable,*,Enclosure Interior Windows Total Transmitted Diffuse Solar Radiation Energy,hourly; !- Zone Sum [J]
+Output:Variable,*,Surface Outside Face Sunlit Area,hourly; !- Zone Average [m2]
+Output:Variable,*,Surface Outside Face Sunlit Fraction,hourly; !- Zone Average []
+Output:Variable,*,Surface Outside Face Incident Solar Radiation Rate per Area,hourly; !- Zone Average [W/m2]
+Output:Variable,*,Surface Outside Face Incident Beam Solar Radiation Rate per Area,hourly; !- Zone Average [W/m2]
+Output:Variable,*,Surface Outside Face Incident Sky Diffuse Solar Radiation Rate per Area,hourly; !- Zone Average [W/m2]
+Output:Variable,*,Surface Outside Face Incident Ground Diffuse Solar Radiation Rate per Area,hourly; !- Zone Average [W/m2]
+Output:Variable,*,Surface Outside Face Beam Solar Incident Angle Cosine Value,hourly; !- Zone Average []
+Output:Variable,*,Surface Outside Face Incident Sky Diffuse Ground Reflected Solar Radiation Rate per Area,hourly; !- Zone Average [W/m2]
+Output:Variable,*,Surface Outside Face Incident Sky Diffuse Surface Reflected Solar Radiation Rate per Area,hourly; !- Zone Average [W/m2]
+Output:Variable,*,Surface Outside Face Incident Beam To Beam Surface Reflected Solar Radiation Rate per Area,hourly; !- Zone Average [W/m2]
+Output:Variable,*,Surface Outside Face Incident Beam To Diffuse Surface Reflected Solar Radiation Rate per Area,hourly; !- Zone Average [W/m2]
+Output:Variable,*,Surface Outside Face Incident Beam To Diffuse Ground Reflected Solar Radiation Rate per Area,hourly; !- Zone Average [W/m2]
 
 OutputControl:Table:Style,
     ALL;                     !- Column Separator

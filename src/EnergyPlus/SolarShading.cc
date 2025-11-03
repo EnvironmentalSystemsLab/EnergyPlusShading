@@ -5070,7 +5070,7 @@ void FigureSunCosines(EnergyPlusData &state,
     state.dataBSDFWindow->SUNCOSTS(iTimeStep, iHour) = state.dataSolarShading->SUNCOS;
 }
 
-//ESL: Direct Sunlit Fractions
+// ESL: Direct Sunlit Fractions
 void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const iTimeStep)
 {
 
@@ -5155,7 +5155,6 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
     //   Note -- if not the below, values are set in SkyDifSolarShading routine (constant for simulation)
     if (state.dataSysVars->DetailedSkyDiffuseAlgorithm && s_surf->ShadingTransmittanceVaries &&
         state.dataHeatBal->SolarDistribution != DataHeatBalance::Shadowing::Minimal) {
-    // if (true) {
         for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) {
             state.dataSolarShading->SurfWithShdgIsoSky(SurfNum) = 0.;
             state.dataSolarShading->SurfWoShdgIsoSky(SurfNum) = 0.;
@@ -10676,18 +10675,10 @@ void SkyDifSolarShading(EnergyPlusData &state)
     std::cout << (!state.dataGlobal->DoingSizing) << std::endl;
     std::cout << (state.dataGlobal->KindOfSim == Constant::KindOfSim::RunPeriodWeather) << std::endl;
 
+    // ESL edit start vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
     // if ((state.dataSysVars->shadingMethod == ShadingMethod::Scheduled || state.dataSysVars->shadingMethod == ShadingMethod::Imported) &&
         // !state.dataGlobal->DoingSizing && state.dataGlobal->KindOfSim == Constant::KindOfSim::RunPeriodWeather) {
     if ((state.dataSysVars->shadingMethod == ShadingMethod::Scheduled || state.dataSysVars->shadingMethod == ShadingMethod::Imported)) {
-    // if (true) {
-        // for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) {
-        //     auto &surf = s_surf->Surface(SurfNum);
-        //     if (surf.SurfSchedExternalShadingFrac) {
-        //         state.dataHeatBal->SurfSunlitFrac(iHour, iTimeStep, SurfNum) = surf.surfExternalShadingSched->getHrTsVal(state, iHour, iTimeStep);
-        //     } else {
-        //         state.dataHeatBal->SurfSunlitFrac(iHour, iTimeStep, SurfNum) = 1.0;
-        //     }
-        // }
             std::cout << "SkyDifSolarShading: End - Scheduled/Imported Shading" << std::endl;
             
             // Load surface attributes from CSV file instead of computing them
@@ -10782,6 +10773,7 @@ void SkyDifSolarShading(EnergyPlusData &state)
             }
         }
     else{
+        // ESL edit end ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         for (int IPhi = 0; IPhi < NPhi; ++IPhi) { // Loop over patch altitude values
             state.dataSolarShading->SUNCOS(3) = state.dataSolarShading->sin_Phi[IPhi];
 
