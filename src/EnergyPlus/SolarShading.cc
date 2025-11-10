@@ -10700,50 +10700,116 @@ void SkyDifSolarShading(EnergyPlusData &state)
                     surface.ViewFactorGroundIR = 0.5;  // Default value
                 }
             } else {
-                std::string line;
-                bool isHeader = true;
+                // std::string line;
+                // bool isHeader = true;
                 
-                while (std::getline(csvFile, line)) {
-                    if (isHeader) {
-                        isHeader = false;
-                        continue;  // Skip header line
-                    }
+                // while (std::getline(csvFile, line)) {
+                //     if (isHeader) {
+                //         isHeader = false;
+                //         continue;  // Skip header line
+                //     }
                     
-                    std::istringstream ss(line);
-                    std::string surfNumStr, surfNameStr, surfDifShdgRatioIsoSkyStr, surfDifShdgRatioHorizStr, 
-                               viewFactorSkyIRStr, viewFactorGroundIRStr;
+                //     std::istringstream ss(line);
+                //     std::string surfNumStr, surfNameStr, surfDifShdgRatioIsoSkyStr, surfDifShdgRatioHorizStr, 
+                //                viewFactorSkyIRStr, viewFactorGroundIRStr;
                     
-                    if (std::getline(ss, surfNumStr, ',') &&
-                        std::getline(ss, surfNameStr, ',') &&
-                        std::getline(ss, surfDifShdgRatioIsoSkyStr, ',') &&
-                        std::getline(ss, surfDifShdgRatioHorizStr, ',') &&
-                        std::getline(ss, viewFactorSkyIRStr, ',') &&
-                        std::getline(ss, viewFactorGroundIRStr)) {
+                //     if (std::getline(ss, surfNumStr, ',') &&
+                //         std::getline(ss, surfNameStr, ',') &&
+                //         std::getline(ss, surfDifShdgRatioIsoSkyStr, ',') &&
+                //         std::getline(ss, surfDifShdgRatioHorizStr, ',') &&
+                //         std::getline(ss, viewFactorSkyIRStr, ',') &&
+                //         std::getline(ss, viewFactorGroundIRStr)) {
                         
-                        try {
-                            int surfNum = std::stoi(surfNumStr);
-                            double surfDifShdgRatioIsoSky = std::stod(surfDifShdgRatioIsoSkyStr);
-                            double surfDifShdgRatioHoriz = std::stod(surfDifShdgRatioHorizStr);
-                            double viewFactorSkyIR = std::stod(viewFactorSkyIRStr);
-                            double viewFactorGroundIR = std::stod(viewFactorGroundIRStr);
-                            std::cout << surfNum << ", "
-                                      << surfDifShdgRatioIsoSky << ", "
-                                      << surfDifShdgRatioHoriz << ", "
-                                      << viewFactorSkyIR << ", "
-                                      << viewFactorGroundIR << std::endl;
+                //         try {
+                //             int surfNum = std::stoi(surfNumStr);
+                //             double surfDifShdgRatioIsoSky = std::stod(surfDifShdgRatioIsoSkyStr);
+                //             double surfDifShdgRatioHoriz = std::stod(surfDifShdgRatioHorizStr);
+                //             double viewFactorSkyIR = std::stod(viewFactorSkyIRStr);
+                //             double viewFactorGroundIR = std::stod(viewFactorGroundIRStr);
+                //             std::cout << surfNum << ", "
+                //                       << surfDifShdgRatioIsoSky << ", "
+                //                       << surfDifShdgRatioHoriz << ", "
+                //                       << viewFactorSkyIR << ", "
+                //                       << viewFactorGroundIR << std::endl;
+                            
+                //             // Validate surface number range
+                //             if (surfNum >= 1 && surfNum <= s_surf->TotSurfaces) {
+                //                 // Set shading ratios if surface is in external list
+                //                 bool isInExtList = std::find(s_surf->AllExtSolAndShadingSurfaceList.begin(),
+                //                                            s_surf->AllExtSolAndShadingSurfaceList.end(),
+                //                                            surfNum) != s_surf->AllExtSolAndShadingSurfaceList.end();
+                //                 if (isInExtList) {
+                //                     state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum) = surfDifShdgRatioIsoSky;
+                //                     state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) = surfDifShdgRatioHoriz;
+                //                     std::cout << "SurfNum " << surfNum << " state.dataSolarShading->SurfDifShdgRatioIsoSky: " << state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum)
+                //                             << " state.dataSolarShading->SurfDifShdgRatioHoriz: " << state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) << std::endl;
+                //                 }
+                                
+                //                 // Set view factors for all surfaces
+                //                 auto &surface = s_surf->Surface(surfNum);
+                //                 surface.ViewFactorSkyIR = viewFactorSkyIR;
+                //                 surface.ViewFactorGroundIR = viewFactorGroundIR;
+                                
+                //                 // Adjust for surrounding surface properties if needed
+                //                 if (surface.SurfHasSurroundingSurfProperty) {
+                //                     surface.ViewFactorGroundIR = 1.0 - surface.ViewFactorSkyIR - surface.ViewFactorSrdSurfs;
+                //                 }
+                //                 std::cout << "SurfNum " << surfNum << " ViewFactorSkyIR: " << surface.ViewFactorSkyIR
+                //                         << " ViewFactorGroundIR: " << surface.ViewFactorGroundIR << std::endl;
+                //             }
+                //         } catch (const std::exception& e) {
+                //             ShowWarningError(state, "Error parsing CSV line: " + line + ". Error: " + e.what());
+                //         }
+                //     }
+                // }
+                // csvFile.close();
+                // std::cout << "Successfully loaded surface attributes from CSV file" << std::endl;
+
+                // for (int surfNum : s_surf->AllExtSolAndShadingSurfaceList) {
+                //     std::cout << "SurfNum " << surfNum << " state.dataSolarShading->SurfDifShdgRatioIsoSky: " << state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum)
+                //             << " state.dataSolarShading->SurfDifShdgRatioHoriz: " << state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) << std::endl;
+                //     std::cout << "SurfNum " << surfNum << " ViewFactorSkyIR: " << s_surf->Surface(surfNum).ViewFactorSkyIR
+                //             << " ViewFactorGroundIR: " << s_surf->Surface(surfNum).ViewFactorGroundIR << std::endl;
+                // }
+                std::string line;
+
+                // Skip the header line
+                if (std::getline(csvFile, line)) {
+                    // Read the data line
+                    if (std::getline(csvFile, line)) {
+                        std::istringstream ss(line);
+                        std::string value;
+                        
+                        // Parse the flattened data: each surface has 4 values in sequence
+                        // (SurfDifShdgRatioIsoSky, SurfDifShdgRatioHoriz, ViewFactorSkyIR, ViewFactorGroundIR)
+                        int surfIndex = 0; // Index into the AllExtSolAndShadingSurfaceList
+                        while (std::getline(ss, value, ',') && surfIndex < s_surf->AllExtSolAndShadingSurfaceList.size()) {
+                            
+                            // Get the actual surface number from the list
+                            int surfNum = s_surf->AllExtSolAndShadingSurfaceList[surfIndex];
+                            
+                            // Parse SurfDifShdgRatioIsoSky (1st attribute)
+                            Real64 surfDifShdgRatioIsoSky = std::stod(value);
+                            
+                            // Parse SurfDifShdgRatioHoriz (2nd attribute)
+                            if (!std::getline(ss, value, ',')) break;
+                            Real64 surfDifShdgRatioHoriz = std::stod(value);
+                            
+                            // Parse ViewFactorSkyIR (3rd attribute)
+                            if (!std::getline(ss, value, ',')) break;
+                            Real64 viewFactorSkyIR = std::stod(value);
+                            
+                            // Parse ViewFactorGroundIR (4th attribute)
+                            if (!std::getline(ss, value, ',')) break;
+                            Real64 viewFactorGroundIR = std::stod(value);
                             
                             // Validate surface number range
                             if (surfNum >= 1 && surfNum <= s_surf->TotSurfaces) {
-                                // Set shading ratios if surface is in external list
-                                bool isInExtList = std::find(s_surf->AllExtSolAndShadingSurfaceList.begin(),
-                                                           s_surf->AllExtSolAndShadingSurfaceList.end(),
-                                                           surfNum) != s_surf->AllExtSolAndShadingSurfaceList.end();
-                                if (isInExtList) {
-                                    state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum) = surfDifShdgRatioIsoSky;
-                                    state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) = surfDifShdgRatioHoriz;
-                                    std::cout << "SurfNum " << surfNum << " state.dataSolarShading->SurfDifShdgRatioIsoSky: " << state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum)
-                                            << " state.dataSolarShading->SurfDifShdgRatioHoriz: " << state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) << std::endl;
-                                }
+                                // Set shading ratios
+                                state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum) = surfDifShdgRatioIsoSky;
+                                state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) = surfDifShdgRatioHoriz;
+                                std::cout << "SurfNum " << surfNum << " state.dataSolarShading->SurfDifShdgRatioIsoSky: " << state.dataSolarShading->SurfDifShdgRatioIsoSky(surfNum)
+                                        << " state.dataSolarShading->SurfDifShdgRatioHoriz: " << state.dataSolarShading->SurfDifShdgRatioHoriz(surfNum) << std::endl;
                                 
                                 // Set view factors for all surfaces
                                 auto &surface = s_surf->Surface(surfNum);
@@ -10757,8 +10823,8 @@ void SkyDifSolarShading(EnergyPlusData &state)
                                 std::cout << "SurfNum " << surfNum << " ViewFactorSkyIR: " << surface.ViewFactorSkyIR
                                         << " ViewFactorGroundIR: " << surface.ViewFactorGroundIR << std::endl;
                             }
-                        } catch (const std::exception& e) {
-                            ShowWarningError(state, "Error parsing CSV line: " + line + ". Error: " + e.what());
+                            
+                            surfIndex++; // Move to next surface in the list
                         }
                     }
                 }
@@ -10885,26 +10951,70 @@ void SkyDifSolarShading(EnergyPlusData &state)
             }
         }
         // ESL edit start - Add CSV output for computed surface attributes
+        // {
+        //     std::cout << "Dumping computed surface attributes to CSV file" << std::endl;
+        //     std::ofstream csvOut("computed_surface_attributes.csv");
+        //     if (!csvOut.is_open()) {
+        //         ShowWarningError(state, "Could not open computed_surface_attributes.csv for writing.");
+        //     } else {
+        //         // Write CSV header
+        //         csvOut << "SurfaceNumber,SurfaceName,SurfDifShdgRatioIsoSky,SurfDifShdgRatioHoriz,ViewFactorSkyIR,ViewFactorGroundIR\n";
+                
+        //         // Write data for all surfaces that have been processed
+        //         // for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) { // iterate over all surfaces
+        //         for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) { // iterate over only the surfaces in the list
+        //             auto &surface = s_surf->Surface(SurfNum);
+        //             csvOut << SurfNum << ","
+        //                    << "\"" << surface.Name << "\","
+        //                    << state.dataSolarShading->SurfDifShdgRatioIsoSky(SurfNum) << ","
+        //                    << state.dataSolarShading->SurfDifShdgRatioHoriz(SurfNum) << ","
+        //                    << surface.ViewFactorSkyIR << ","
+        //                    << surface.ViewFactorGroundIR << "\n";
+        //         }
+                
+        //         csvOut.close();
+        //         std::cout << "Successfully wrote computed_surface_attributes.csv" << std::endl;
+        //     }
+        // }
         {
             std::cout << "Dumping computed surface attributes to CSV file" << std::endl;
             std::ofstream csvOut("computed_surface_attributes.csv");
             if (!csvOut.is_open()) {
                 ShowWarningError(state, "Could not open computed_surface_attributes.csv for writing.");
             } else {
-                // Write CSV header
-                csvOut << "SurfaceNumber,SurfaceName,SurfDifShdgRatioIsoSky,SurfDifShdgRatioHoriz,ViewFactorSkyIR,ViewFactorGroundIR\n";
-                
-                // Write data for all surfaces that have been processed
-                // for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) { // iterate over all surfaces
-                for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) { // iterate over only the surfaces in the list
+                // Write header row with surface names and attributes (no SurfNum or SurfName)
+                bool first = true;
+                for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) {
                     auto &surface = s_surf->Surface(SurfNum);
-                    csvOut << SurfNum << ","
-                           << "\"" << surface.Name << "\","
-                           << state.dataSolarShading->SurfDifShdgRatioIsoSky(SurfNum) << ","
-                           << state.dataSolarShading->SurfDifShdgRatioHoriz(SurfNum) << ","
-                           << surface.ViewFactorSkyIR << ","
-                           << surface.ViewFactorGroundIR << "\n";
+                    
+                    // Write comma separator between surface data (not before first surface)
+                    if (!first) csvOut << ",";
+                    first = false;
+                    
+                    // Write headers for the 4 attributes only
+                    csvOut << "\"" << surface.Name << ": SurfDifShdgRatioIsoSky\","
+                        << "\"" << surface.Name << ": SurfDifShdgRatioHoriz\","
+                        << "\"" << surface.Name << ": ViewFactorSkyIR\","
+                        << "\"" << surface.Name << ": ViewFactorGroundIR\"";
                 }
+                csvOut << "\n"; // End the header row
+                
+                // Write data row with only the 4 attributes per surface
+                first = true;
+                for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) {
+                    auto &surface = s_surf->Surface(SurfNum);
+                    
+                    // Write comma separator between surface data (not before first surface)
+                    if (!first) csvOut << ",";
+                    first = false;
+                    
+                    // Write only the 4 attributes for this surface
+                    csvOut << state.dataSolarShading->SurfDifShdgRatioIsoSky(SurfNum) << ","
+                        << state.dataSolarShading->SurfDifShdgRatioHoriz(SurfNum) << ","
+                        << surface.ViewFactorSkyIR << ","
+                        << surface.ViewFactorGroundIR;
+                }
+                csvOut << "\n"; // End the data row
                 
                 csvOut.close();
                 std::cout << "Successfully wrote computed_surface_attributes.csv" << std::endl;
