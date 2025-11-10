@@ -10683,10 +10683,10 @@ void SkyDifSolarShading(EnergyPlusData &state)
             
             // Load surface attributes from CSV file instead of computing them
             std::cout << "Loading surface attributes from CSV file" << std::endl;
-            std::ifstream csvFile("surface_attributes.csv");
+            std::ifstream csvFile("computed_surface_attributes.csv");
             
             if (!csvFile.is_open()) {
-                ShowWarningError(state, "Could not open surface_attributes.csv for reading. Using default values.");
+                ShowWarningError(state, "Could not open input csv for reading. Using default values.");
                 
                 // Fallback to default values if CSV file can't be opened
                 for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) {
@@ -10710,10 +10710,11 @@ void SkyDifSolarShading(EnergyPlusData &state)
                     }
                     
                     std::istringstream ss(line);
-                    std::string surfNumStr, surfDifShdgRatioIsoSkyStr, surfDifShdgRatioHorizStr, 
+                    std::string surfNumStr, surfNameStr, surfDifShdgRatioIsoSkyStr, surfDifShdgRatioHorizStr, 
                                viewFactorSkyIRStr, viewFactorGroundIRStr;
                     
                     if (std::getline(ss, surfNumStr, ',') &&
+                        std::getline(ss, surfNameStr, ',') &&
                         std::getline(ss, surfDifShdgRatioIsoSkyStr, ',') &&
                         std::getline(ss, surfDifShdgRatioHorizStr, ',') &&
                         std::getline(ss, viewFactorSkyIRStr, ',') &&
@@ -10883,7 +10884,33 @@ void SkyDifSolarShading(EnergyPlusData &state)
                           << std::endl;
             }
         }
-        else {std::cout << "else" << std::endl;}
+        // ESL edit start - Add CSV output for computed surface attributes
+        {
+            std::cout << "Dumping computed surface attributes to CSV file" << std::endl;
+            std::ofstream csvOut("computed_surface_attributes.csv");
+            if (!csvOut.is_open()) {
+                ShowWarningError(state, "Could not open computed_surface_attributes.csv for writing.");
+            } else {
+                // Write CSV header
+                csvOut << "SurfaceNumber,SurfaceName,SurfDifShdgRatioIsoSky,SurfDifShdgRatioHoriz,ViewFactorSkyIR,ViewFactorGroundIR\n";
+                
+                // Write data for all surfaces that have been processed
+                // for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) { // iterate over all surfaces
+                for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) { // iterate over only the surfaces in the list
+                    auto &surface = s_surf->Surface(SurfNum);
+                    csvOut << SurfNum << ","
+                           << "\"" << surface.Name << "\","
+                           << state.dataSolarShading->SurfDifShdgRatioIsoSky(SurfNum) << ","
+                           << state.dataSolarShading->SurfDifShdgRatioHoriz(SurfNum) << ","
+                           << surface.ViewFactorSkyIR << ","
+                           << surface.ViewFactorGroundIR << "\n";
+                }
+                
+                csvOut.close();
+                std::cout << "Successfully wrote computed_surface_attributes.csv" << std::endl;
+            }
+        }
+        // ESL edit end
     }
 }
 

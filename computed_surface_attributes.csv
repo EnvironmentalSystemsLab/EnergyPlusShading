@@ -1,0 +1,6 @@
+SurfaceNumber,SurfaceName,SurfDifShdgRatioIsoSky,SurfDifShdgRatioHoriz,ViewFactorSkyIR,ViewFactorGroundIR
+1,"ZN001:WALL001",1,1,0.5,0.5
+2,"ZN001:WALL002",1,1,0.5,0.5
+3,"ZN001:WALL003",1,1,0.5,0.5
+4,"ZN001:WALL004",1,1,0.5,0.5
+6,"ZN001:ROOF001",1,1,1,0
