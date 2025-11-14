@@ -1,4 +1,4 @@
-Program Version: EnergyPlus, Version 25.2.0-80222d7e5c, YMD=2025.11.10 13:51
+Program Version: EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.13 21:33
 Tabular Output Report in Format:  Fixed
 
 Building:        Simple One Zone (Wireframe DXF)
@@ -575,7 +575,7 @@ Environment:Site Atmospheric Variation
 Shadowing/Sun Position Calculations Annual Simulations
 
     Shading Calculation Method  Shading Calculation Update Frequency Method  Shading Calculation Update Frequency {days}  Maximum Figures in Shadow Overlap Calculations {}  Polygon Clipping Algorithm  Pixel Counting Resolution  Sky Diffuse Modeling Algorithm  Output External Shading Calculation Results  Disable Self-Shading Within Shading Zone Groups  Disable Self-Shading From Shading Zone Groups to Other Zones
-  1                     Imported                                     Periodic                                           20                                              15000           SutherlandHodgman                        512      DetailedSkyDiffuseModeling                                          Yes                                               No                                                            No
+  1                     Imported                                     Periodic                                           20                                              15000           SutherlandHodgman                        512      DetailedSkyDiffuseModeling                                           No                                               No                                                            No
 
 
 Surface Geometry

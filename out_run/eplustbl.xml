@@ -3,13 +3,13 @@
   <BuildingName>Simple One Zone (Wireframe DXF)</BuildingName>
   <EnvironmentName>RUN PERIOD 1</EnvironmentName>
   <WeatherFileLocationTitle>Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300</WeatherFileLocationTitle>
-  <ProgramVersion>EnergyPlus, Version 25.2.0-80222d7e5c, YMD=2025.11.10 13:51</ProgramVersion>
+  <ProgramVersion>EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.13 21:33</ProgramVersion>
   <SimulationTimestamp>
     <Date>
-      2025-11-10
+      2025-11-13
     </Date>
     <Time>
-      13:51:29
+      21:33:44
     </Time>
   </SimulationTimestamp>
 
@@ -1052,7 +1052,7 @@
   <for>Entire Facility</for>
   <General>
     <name>Value</name>
-    <ProgramVersionAndBuild>EnergyPlus, Version 25.2.0-80222d7e5c, YMD=2025.11.10 13:51</ProgramVersionAndBuild>
+    <ProgramVersionAndBuild>EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.13 21:33</ProgramVersionAndBuild>
     <Runperiod>RUN PERIOD 1</Runperiod>
     <WeatherFile>Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300</WeatherFile>
     <Latitude units="deg">
@@ -2538,7 +2538,7 @@
     <PolygonClippingAlgorithm>SutherlandHodgman</PolygonClippingAlgorithm>
     <PixelCountingResolution>512</PixelCountingResolution>
     <SkyDiffuseModelingAlgorithm>DetailedSkyDiffuseModeling</SkyDiffuseModelingAlgorithm>
-    <OutputExternalShadingCalculationResults>Yes</OutputExternalShadingCalculationResults>
+    <OutputExternalShadingCalculationResults>No</OutputExternalShadingCalculationResults>
     <DisableSelfShadingWithinShadingZoneGroups>No</DisableSelfShadingWithinShadingZoneGroups>
     <DisableSelfShadingFromShadingZoneGroupsToOtherZones>No</DisableSelfShadingFromShadingZoneGroupsToOtherZones>
   </ShadowingSunPositionCalculationsAnnualSimulations>

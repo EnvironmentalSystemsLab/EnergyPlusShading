@@ -181,7 +181,7 @@ ShadowCalculation,
     ,                        !- Polygon Clipping Algorithm
     512,                     !- Pixel Counting Resolution
     DetailedSkyDiffuseModeling,  !- Sky Diffuse Modeling Algorithm
-    Yes,                     !- Output External Shading Calculation Results
+    No,                      !- Output External Shading Calculation Results
     No,                      !- Disable Self-Shading Within Shading Zone Groups
     No;                      !- Disable Self-Shading From Shading Zone Groups to Other Zones
 

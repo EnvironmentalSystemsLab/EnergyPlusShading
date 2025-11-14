@@ -10540,6 +10540,7 @@ void WindowGapAirflowControl(EnergyPlusData &state)
 void SkyDifSolarShading(EnergyPlusData &state)
 {
     std::cout << "SkyDifSolarShading: Start" << std::endl;
+    std::cout << "Output External Shading Calculation Results:" << state.dataSysVars->ReportExtShadingSunlitFrac << std::endl;
     // SUBROUTINE INFORMATION:
     //       AUTHOR         Fred Winkelmann
     //       DATE WRITTEN   May 1999
@@ -10951,32 +10952,7 @@ void SkyDifSolarShading(EnergyPlusData &state)
             }
         }
         // ESL edit start - Add CSV output for computed surface attributes
-        // {
-        //     std::cout << "Dumping computed surface attributes to CSV file" << std::endl;
-        //     std::ofstream csvOut("computed_surface_attributes.csv");
-        //     if (!csvOut.is_open()) {
-        //         ShowWarningError(state, "Could not open computed_surface_attributes.csv for writing.");
-        //     } else {
-        //         // Write CSV header
-        //         csvOut << "SurfaceNumber,SurfaceName,SurfDifShdgRatioIsoSky,SurfDifShdgRatioHoriz,ViewFactorSkyIR,ViewFactorGroundIR\n";
-                
-        //         // Write data for all surfaces that have been processed
-        //         // for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) { // iterate over all surfaces
-        //         for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) { // iterate over only the surfaces in the list
-        //             auto &surface = s_surf->Surface(SurfNum);
-        //             csvOut << SurfNum << ","
-        //                    << "\"" << surface.Name << "\","
-        //                    << state.dataSolarShading->SurfDifShdgRatioIsoSky(SurfNum) << ","
-        //                    << state.dataSolarShading->SurfDifShdgRatioHoriz(SurfNum) << ","
-        //                    << surface.ViewFactorSkyIR << ","
-        //                    << surface.ViewFactorGroundIR << "\n";
-        //         }
-                
-        //         csvOut.close();
-        //         std::cout << "Successfully wrote computed_surface_attributes.csv" << std::endl;
-        //     }
-        // }
-        {
+        if (state.dataSysVars->ReportExtShadingSunlitFrac) {
             std::cout << "Dumping computed surface attributes to CSV file" << std::endl;
             std::ofstream csvOut("computed_surface_attributes.csv");
             if (!csvOut.is_open()) {
