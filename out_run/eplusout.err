@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.13 21:33,
+Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.13 23:33,
    ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
    **   ~~~   ** ..Location object=DENVER CENTENNIAL  GOLDEN   N_CO_USA DESIGN_CONDITIONS
    **   ~~~   ** ..Weather File Location=Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
@@ -39,4 +39,4 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.13 21:33,
    ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 10 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  1.36sec
+   ************* EnergyPlus Completed Successfully-- 10 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  1.14sec
