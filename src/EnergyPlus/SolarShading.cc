@@ -10685,11 +10685,18 @@ void SkyDifSolarShading(EnergyPlusData &state)
             // Load surface attributes from CSV file instead of computing them
             std::cout << "Loading surface attributes from CSV file" << std::endl;
             auto scheduleMap = state.dataSched->UniqueProcessedExternalFiles;
-            std::string shadingSchedFilePath;
+            std::string shadingSchedFilePath = state.dataSched->ShadingSunlitFracFileName;
             // FIXME: currently just gets the first one
             for (const auto& pair : scheduleMap) {
-                shadingSchedFilePath = pair.first.string();
+                // shadingSchedFilePath = pair.first.string();
+                std::cout << "Found shading schedule file path: " << shadingSchedFilePath << std::endl;
+                for (auto& [key, val] : pair.second.items()){
+                    std::cout << "key: " << key << '\n';
+                }
                 break;
+            }
+            for (const auto& pair : scheduleMap) {
+                std::cout << "Found shading schedule file path: " << pair.first.string() << std::endl;
             }
             const int dot_pos = shadingSchedFilePath.rfind(".");
             const std::string csvFilePath = shadingSchedFilePath.substr(0, dot_pos) + "_diffuse.csv";

@@ -1,4 +1,7 @@
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.13 23:33,
+Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.20 06:33,
+   ** Warning ** ProcessScheduleInput: Schedule:File = ELECTDVFROMCZ01RES
+   **   ~~~   ** Schedule Type Limits Name = ANY NUMBER, item not found.
+   **   ~~~   ** Schedule will not be validated.
    ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
    **   ~~~   ** ..Location object=DENVER CENTENNIAL  GOLDEN   N_CO_USA DESIGN_CONDITIONS
    **   ~~~   ** ..Weather File Location=Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
@@ -33,10 +36,10 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.13 23:33,
    ************* No node connection errors were found.
    ************* Beginning Simulation
    ************* Simulation Error Summary *************
-   ************* There are 6 unused schedules in input.
-   ************* There are 2190 unused week schedules in input.
-   ************* There are 2190 unused day schedules in input.
+   ************* There are 7 unused schedules in input.
+   ************* There are 2556 unused week schedules in input.
+   ************* There are 2556 unused day schedules in input.
    ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 10 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  1.14sec
+   ************* EnergyPlus Completed Successfully-- 11 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  1.05sec

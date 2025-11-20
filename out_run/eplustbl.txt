@@ -1,4 +1,4 @@
-Program Version: EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.13 23:33
+Program Version: EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.20 06:33
 Tabular Output Report in Format:  Fixed
 
 Building:        Simple One Zone (Wireframe DXF)
@@ -1397,9 +1397,9 @@ HVAC
 Input Fields
 
                                    Count
-              IDF Objects               53
-         Defaulted Fields               28
-     Fields with Defaults              167
+              IDF Objects               54
+         Defaulted Fields               31
+     Fields with Defaults              172
          Autosized Fields                0
        Autosizable Fields                0
     Autocalculated Fields                3
