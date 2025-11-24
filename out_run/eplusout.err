@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.20 06:33,
+Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.24 10:37,
    ** Warning ** ProcessScheduleInput: Schedule:File = ELECTDVFROMCZ01RES
    **   ~~~   ** Schedule Type Limits Name = ANY NUMBER, item not found.
    **   ~~~   ** Schedule will not be validated.
@@ -42,4 +42,4 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.20 06:33,
    ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 11 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  1.05sec
+   ************* EnergyPlus Completed Successfully-- 11 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  1.26sec

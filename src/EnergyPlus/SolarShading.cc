@@ -5161,29 +5161,51 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
             state.dataSolarShading->SurfWithShdgHoriz(SurfNum) = 0.;
             state.dataSolarShading->SurfWoShdgHoriz(SurfNum) = 0.;
         }
-        // std::cout << "initialized dataSolarShading" << std::endl;
         if (state.dataSysVars->shadingMethod==ShadingMethod::Imported){
             std::cout << "using import" << std::endl;
-            std::ifstream csvFile("~/solar_shading_attributes.csv");
+            std::string shadingSchedFilePath = state.dataSched->ShadingSunlitFracFileName;
+            const int dot_pos = shadingSchedFilePath.rfind(".");
+            const std::string csvFilePath = shadingSchedFilePath.substr(0, dot_pos) + "_diffuse.csv";
+            std::ifstream csvFile(csvFilePath);
+            std::cout << "Reading from " << csvFilePath << std::endl;
             if (!csvFile.is_open()) {
-                ShowWarningError(state, "Could not open solar_shading_attributes.csv for reading.");
+                ShowWarningError(state, "Could not open csv for reading.");
             } else {
+                int numSkipLines = state.dataGlobal->TimeStepsInHour * iHour + iTimeStep;
                 std::string line;
                 while (std::getline(csvFile, line)) {
+                    if (numSkipLines > 0) {
+                        --numSkipLines;
+                        continue;
+                    }
                     std::istringstream ss(line);
-                    std::string key, value;
-                    if (std::getline(ss, key, ',') && std::getline(ss, value)) {
-                        // Example: set attributes if they match known names
-                        if (key == "SurfWithShdgIsoSky") {
-                            state.dataSolarShading->SurfWithShdgIsoSky = std::stod(value);
-                        } else if (key == "SurfWoShdgIsoSky") {
-                            state.dataSolarShading->SurfWoShdgIsoSky = std::stod(value);
-                        } else if (key == "SurfWithShdgHoriz") {
-                            state.dataSolarShading->SurfWithShdgHoriz = std::stod(value);
-                        } else if (key == "SurfWoShdgHoriz") {
-                            state.dataSolarShading->SurfWoShdgHoriz = std::stod(value);
+                    std::string value;
+                    std::getline(ss, value, ','); // Skip the first value (TimeStamp)
+                    // Parse the flattened data: each surface has 4 values in sequence
+                    // (SurfDifShdgRatioIsoSky, SurfDifShdgRatioHoriz, ViewFactorSkyIR, ViewFactorGroundIR)
+                    int surfIndex = 0; // Index into the AllExtSolAndShadingSurfaceList
+                    while (std::getline(ss, value, ',') && surfIndex < s_surf->AllExtSolAndShadingSurfaceList.size()) {
+                        
+                        // Get the actual surface number from the list
+                        int surfNum = s_surf->AllExtSolAndShadingSurfaceList[surfIndex];
+                        
+                        Real64 SurfWithShdgIsoSky = std::stod(value);
+                        if (!std::getline(ss, value, ',')) break;
+                        Real64 SurfWoShdgIsoSky = std::stod(value);
+                        if (!std::getline(ss, value, ',')) break;
+                        Real64 SurfWithShdgHoriz = std::stod(value);
+                        if (!std::getline(ss, value, ',')) break;
+                        Real64 SurfWoShdgHoriz = std::stod(value);
+                        
+                        // Validate surface number range
+                        if (surfNum >= 1 && surfNum <= s_surf->TotSurfaces) {
+                            state.dataSolarShading->SurfWithShdgIsoSky(surfNum) = SurfWithShdgIsoSky;
+                            state.dataSolarShading->SurfWoShdgIsoSky(surfNum) = SurfWoShdgIsoSky;
+                            state.dataSolarShading->SurfWithShdgHoriz(surfNum) = SurfWithShdgHoriz;
+                            state.dataSolarShading->SurfWoShdgHoriz(surfNum) = SurfWoShdgHoriz;
                         }
-                        // Add more attributes as needed
+                        
+                        surfIndex++; // Move to next surface in the list
                     }
                 }
                 csvFile.close();
@@ -5259,21 +5281,47 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
                         (state.dataSolarShading->SurfWithShdgHoriz(SurfNum)) / (state.dataSolarShading->SurfWoShdgHoriz(SurfNum) + Eps);
                 }
             }
-            // {
-            //     std::cout << "dumping to csv" << std::endl;
-            //     std::ofstream csvOut("~/solar_shading_attributes_dump.csv");
-            //     if (!csvOut.is_open()) {
-            //         ShowWarningError(state, "Could not open solar_shading_attributes_dump.csv for writing.");
-            //     } else {
-            //         csvOut << "SurfWithShdgIsoSky," << state.dataSolarShading->SurfWithShdgIsoSky << "\n";
-            //         csvOut << "SurfWoShdgIsoSky," << state.dataSolarShading->SurfWoShdgIsoSky << "\n";
-            //         csvOut << "SurfWithShdgHoriz," << state.dataSolarShading->SurfWithShdgHoriz << "\n";
-            //         csvOut << "SurfWoShdgHoriz," << state.dataSolarShading->SurfWoShdgHoriz << "\n";
-            //         // Add more attributes as needed
-            //         csvOut.close();
-            //     }
-            //     std::cout << "Wrote solar_shading_attributes_dump.csv" << std::endl;
-            // }
+            if (state.dataSysVars->ReportExtShadingSunlitFrac) {
+                std::cout << "Dumping computed surface attributes to CSV file" << std::endl;
+                std::ofstream csvOut("computed_surface_attributes_hourly.csv");
+                if (!csvOut.is_open()) {
+                    ShowWarningError(state, "Could not open computed_surface_attributes.csv for writing.");
+                } else {
+                    csvOut << "Surface Name";
+                    for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) {
+                        auto &surface = s_surf->Surface(SurfNum);
+                        
+                        // Write comma separator between surface data (not before first surface)
+                        csvOut << ",";
+                        
+                        // Write headers for the 4 attributes only
+                        csvOut << "\"" << surface.Name << ": SurfWithShdgIsoSky\","
+                            << "\"" << surface.Name << ": SurfWoShdgIsoSky\","
+                            << "\"" << surface.Name << ": SurfWithShdgHoriz\","
+                            << "\"" << surface.Name << ": SurfWoShdgHoriz\"";
+                    }
+                    csvOut << "\n"; // End the header row
+                    
+                    // Write data row with only the 4 attributes per surface
+                    csvOut << iHour << ":" << iTimeStep;
+                    for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) {
+                        auto &surface = s_surf->Surface(SurfNum);
+                        
+                        // Write comma separator between surface data (not before first surface)
+                        csvOut << ",";
+                        
+                        // Write only the 4 attributes for this surface
+                        csvOut << state.dataSolarShading->SurfWithShdgIsoSky << ","
+                            << state.dataSolarShading->SurfWoShdgIsoSky << ","
+                            << state.dataSolarShading->SurfWithShdgHoriz << ","
+                            << state.dataSolarShading->SurfWoShdgHoriz;
+                    }
+                    csvOut << "\n"; // End the data row
+                    
+                    csvOut.close();
+                    std::cout << "Successfully wrote computed_surface_attributes_hourly.csv" << std::endl;
+                }
+            }
 
         }
 
@@ -10684,20 +10732,20 @@ void SkyDifSolarShading(EnergyPlusData &state)
             
             // Load surface attributes from CSV file instead of computing them
             std::cout << "Loading surface attributes from CSV file" << std::endl;
-            auto scheduleMap = state.dataSched->UniqueProcessedExternalFiles;
+            // auto scheduleMap = state.dataSched->UniqueProcessedExternalFiles;
             std::string shadingSchedFilePath = state.dataSched->ShadingSunlitFracFileName;
-            // FIXME: currently just gets the first one
-            for (const auto& pair : scheduleMap) {
-                // shadingSchedFilePath = pair.first.string();
-                std::cout << "Found shading schedule file path: " << shadingSchedFilePath << std::endl;
-                for (auto& [key, val] : pair.second.items()){
-                    std::cout << "key: " << key << '\n';
-                }
-                break;
-            }
-            for (const auto& pair : scheduleMap) {
-                std::cout << "Found shading schedule file path: " << pair.first.string() << std::endl;
-            }
+            // // FIXME: currently just gets the first one
+            // for (const auto& pair : scheduleMap) {
+            //     // shadingSchedFilePath = pair.first.string();
+            //     std::cout << "Found shading schedule file path: " << shadingSchedFilePath << std::endl;
+            //     for (auto& [key, val] : pair.second.items()){
+            //         std::cout << "key: " << key << '\n';
+            //     }
+            //     break;
+            // }
+            // for (const auto& pair : scheduleMap) {
+            //     std::cout << "Found shading schedule file path: " << pair.first.string() << std::endl;
+            // }
             const int dot_pos = shadingSchedFilePath.rfind(".");
             const std::string csvFilePath = shadingSchedFilePath.substr(0, dot_pos) + "_diffuse.csv";
             std::ifstream csvFile(csvFilePath);
@@ -10726,6 +10774,7 @@ void SkyDifSolarShading(EnergyPlusData &state)
                     if (std::getline(csvFile, line)) {
                         std::istringstream ss(line);
                         std::string value;
+                        std::getline(ss, value, ','); // Skip the first value (TimeStamp)
                         
                         // Parse the flattened data: each surface has 4 values in sequence
                         // (SurfDifShdgRatioIsoSky, SurfDifShdgRatioHoriz, ViewFactorSkyIR, ViewFactorGroundIR)
@@ -10905,13 +10954,12 @@ void SkyDifSolarShading(EnergyPlusData &state)
                 ShowWarningError(state, "Could not open computed_surface_attributes.csv for writing.");
             } else {
                 // Write header row with surface names and attributes (no SurfNum or SurfName)
-                bool first = true;
+                csvOut << "Surface Name";
                 for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) {
                     auto &surface = s_surf->Surface(SurfNum);
                     
                     // Write comma separator between surface data (not before first surface)
-                    if (!first) csvOut << ",";
-                    first = false;
+                    csvOut << ",";
                     
                     // Write headers for the 4 attributes only
                     csvOut << "\"" << surface.Name << ": SurfDifShdgRatioIsoSky\","
@@ -10922,13 +10970,12 @@ void SkyDifSolarShading(EnergyPlusData &state)
                 csvOut << "\n"; // End the header row
                 
                 // Write data row with only the 4 attributes per surface
-                first = true;
+                csvOut << "Constant";
                 for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) {
                     auto &surface = s_surf->Surface(SurfNum);
                     
                     // Write comma separator between surface data (not before first surface)
-                    if (!first) csvOut << ",";
-                    first = false;
+                    csvOut << ",";
                     
                     // Write only the 4 attributes for this surface
                     csvOut << state.dataSolarShading->SurfDifShdgRatioIsoSky(SurfNum) << ","
