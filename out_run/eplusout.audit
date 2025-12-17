@@ -1,6 +1,4 @@
-found (Current Working Directory)=D:\cornell\year4\ARCH5903\EnergyPlusShading\test_file_1.csv
   Processing Schedule Input -- Start
-found (Current Working Directory)=D:\cornell\year4\ARCH5903\EnergyPlusShading\test_file_0.csv
   Processing Schedule Input -- Complete
  MonthlyInputCount=           0
  sizeMonthlyInput=           0
@@ -18,8 +16,8 @@ found (Current Working Directory)=D:\cornell\year4\ARCH5903\EnergyPlusShading\te
  numTableEntry=         932
  sizeCompSizeTableEntry=           0
  numCompSizeTableEntry=           0
- NumOfRVariable=         771
- NumOfRVariable(Total)=         771
+ NumOfRVariable=         764
+ NumOfRVariable(Total)=         764
  NumOfRVariable(Actual)=          74
  NumOfRVariable(Summed)=          14
  NumOfRVariable(Meter)=           9

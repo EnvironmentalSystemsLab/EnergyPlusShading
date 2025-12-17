@@ -3,13 +3,13 @@
   <BuildingName>Simple One Zone (Wireframe DXF)</BuildingName>
   <EnvironmentName>RUN PERIOD 1</EnvironmentName>
   <WeatherFileLocationTitle>Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300</WeatherFileLocationTitle>
-  <ProgramVersion>EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.24 10:37</ProgramVersion>
+  <ProgramVersion>EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31</ProgramVersion>
   <SimulationTimestamp>
     <Date>
-      2025-11-24
+      2025-12-17
     </Date>
     <Time>
-      10:37:09
+      03:31:36
     </Time>
   </SimulationTimestamp>
 
@@ -1052,7 +1052,7 @@
   <for>Entire Facility</for>
   <General>
     <name>Value</name>
-    <ProgramVersionAndBuild>EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.24 10:37</ProgramVersionAndBuild>
+    <ProgramVersionAndBuild>EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31</ProgramVersionAndBuild>
     <Runperiod>RUN PERIOD 1</Runperiod>
     <WeatherFile>Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300</WeatherFile>
     <Latitude units="deg">
@@ -2531,14 +2531,14 @@
   </EnvironmentSiteAtmosphericVariation>
   <ShadowingSunPositionCalculationsAnnualSimulations>
     <name>t1</name>
-    <ShadingCalculationMethod>Imported</ShadingCalculationMethod>
+    <ShadingCalculationMethod>IMPORTED</ShadingCalculationMethod>
     <ShadingCalculationUpdateFrequencyMethod>Periodic</ShadingCalculationUpdateFrequencyMethod>
     <ShadingCalculationUpdateFrequencyDays>20</ShadingCalculationUpdateFrequencyDays>
     <MaximumFiguresInShadowOverlapCalculations>15000</MaximumFiguresInShadowOverlapCalculations>
     <PolygonClippingAlgorithm>SutherlandHodgman</PolygonClippingAlgorithm>
     <PixelCountingResolution>512</PixelCountingResolution>
     <SkyDiffuseModelingAlgorithm>DetailedSkyDiffuseModeling</SkyDiffuseModelingAlgorithm>
-    <OutputExternalShadingCalculationResults>No</OutputExternalShadingCalculationResults>
+    <OutputExternalShadingCalculationResults>Yes</OutputExternalShadingCalculationResults>
     <DisableSelfShadingWithinShadingZoneGroups>No</DisableSelfShadingWithinShadingZoneGroups>
     <DisableSelfShadingFromShadingZoneGroupsToOtherZones>No</DisableSelfShadingFromShadingZoneGroupsToOtherZones>
   </ShadowingSunPositionCalculationsAnnualSimulations>
@@ -2859,8 +2859,8 @@
     <name>t3</name>
     <ZoneName>ZONE ONE</ZoneName>
     <EnvironmentTypeName>RunPeriod: RUN PERIOD 1</EnvironmentTypeName>
-    <AverageWarmupTemperatureDifferenceDeltac>4.1043384628E-002</AverageWarmupTemperatureDifferenceDeltac>
-    <StdDevWarmupTemperatureDifferenceDeltac>3.6580829551E-002</StdDevWarmupTemperatureDifferenceDeltac>
+    <AverageWarmupTemperatureDifferenceDeltac>4.8735575994E-002</AverageWarmupTemperatureDifferenceDeltac>
+    <StdDevWarmupTemperatureDifferenceDeltac>5.2087775629E-002</StdDevWarmupTemperatureDifferenceDeltac>
     <MaxTemperaturePassFailConvergence>Pass</MaxTemperaturePassFailConvergence>
     <MinTemperaturePassFailConvergence>Pass</MinTemperaturePassFailConvergence>
     <AverageWarmupLoadDifferenceW>0.0000000000</AverageWarmupLoadDifferenceW>
@@ -2873,52 +2873,52 @@
   <for>Entire Facility</for>
   <AnnualHeatEmissionsSummary>
     <name>HeatEmissions</name>
-    <EnvelopeConvection>538.24</EnvelopeConvection>
+    <EnvelopeConvection>709.28</EnvelopeConvection>
     <ZoneExfiltration>0.00</ZoneExfiltration>
     <ZoneExhaustAir>0.00</ZoneExhaustAir>
     <HvacReliefAir>0.00</HvacReliefAir>
     <HvacRejectHeat>0.00</HvacRejectHeat>
-    <Total>538.25</Total>
+    <Total>709.28</Total>
   </AnnualHeatEmissionsSummary>
 </AnnualHeatEmissionsReport>
 <AnnualThermalResilienceSummary>
   <for>Entire Facility</for>
   <HeatIndexHours>
     <name>ZoneOne</name>
-    <Safe267C units="hr">8454.00</Safe267C>
-    <Caution267C322C units="hr">306.00</Caution267C322C>
+    <Safe267C units="hr">8123.00</Safe267C>
+    <Caution267C322C units="hr">637.00</Caution267C322C>
     <ExtremeCaution322C394C units="hr">0.00</ExtremeCaution322C394C>
     <Danger394C517C units="hr">0.00</Danger394C517C>
     <ExtremeDanger517C units="hr">0.00</ExtremeDanger517C>
   </HeatIndexHours>
   <HeatIndexHours>
     <name>Min</name>
-    <Safe267C units="hr">8454.00</Safe267C>
-    <Caution267C322C units="hr">306.00</Caution267C322C>
+    <Safe267C units="hr">8123.00</Safe267C>
+    <Caution267C322C units="hr">637.00</Caution267C322C>
     <ExtremeCaution322C394C units="hr">0.00</ExtremeCaution322C394C>
     <Danger394C517C units="hr">0.00</Danger394C517C>
     <ExtremeDanger517C units="hr">0.00</ExtremeDanger517C>
   </HeatIndexHours>
   <HeatIndexHours>
     <name>Max</name>
-    <Safe267C units="hr">8454.00</Safe267C>
-    <Caution267C322C units="hr">306.00</Caution267C322C>
+    <Safe267C units="hr">8123.00</Safe267C>
+    <Caution267C322C units="hr">637.00</Caution267C322C>
     <ExtremeCaution322C394C units="hr">0.00</ExtremeCaution322C394C>
     <Danger394C517C units="hr">0.00</Danger394C517C>
     <ExtremeDanger517C units="hr">0.00</ExtremeDanger517C>
   </HeatIndexHours>
   <HeatIndexHours>
     <name>Average</name>
-    <Safe267C units="hr">8454.00</Safe267C>
-    <Caution267C322C units="hr">306.00</Caution267C322C>
+    <Safe267C units="hr">8123.00</Safe267C>
+    <Caution267C322C units="hr">637.00</Caution267C322C>
     <ExtremeCaution322C394C units="hr">0.00</ExtremeCaution322C394C>
     <Danger394C517C units="hr">0.00</Danger394C517C>
     <ExtremeDanger517C units="hr">0.00</ExtremeDanger517C>
   </HeatIndexHours>
   <HeatIndexHours>
     <name>Sum</name>
-    <Safe267C units="hr">8454.00</Safe267C>
-    <Caution267C322C units="hr">306.00</Caution267C322C>
+    <Safe267C units="hr">8123.00</Safe267C>
+    <Caution267C322C units="hr">637.00</Caution267C322C>
     <ExtremeCaution322C394C units="hr">0.00</ExtremeCaution322C394C>
     <Danger394C517C units="hr">0.00</Danger394C517C>
     <ExtremeDanger517C units="hr">0.00</ExtremeDanger517C>
@@ -3005,40 +3005,40 @@
   </HeatIndexOccupiedhours>
   <HumidexHours>
     <name>ZoneOne</name>
-    <LittleToNoDiscomfort29 units="hr">8760.00</LittleToNoDiscomfort29>
-    <SomeDiscomfort2940 units="hr">0.00</SomeDiscomfort2940>
+    <LittleToNoDiscomfort29 units="hr">8732.00</LittleToNoDiscomfort29>
+    <SomeDiscomfort2940 units="hr">28.00</SomeDiscomfort2940>
     <GreatDiscomfortAvoidExertion4045 units="hr">0.00</GreatDiscomfortAvoidExertion4045>
     <Dangerous4550 units="hr">0.00</Dangerous4550>
     <HeatStrokeQuitePossible50 units="hr">0.00</HeatStrokeQuitePossible50>
   </HumidexHours>
   <HumidexHours>
     <name>Min</name>
-    <LittleToNoDiscomfort29 units="hr">8760.00</LittleToNoDiscomfort29>
-    <SomeDiscomfort2940 units="hr">0.00</SomeDiscomfort2940>
+    <LittleToNoDiscomfort29 units="hr">8732.00</LittleToNoDiscomfort29>
+    <SomeDiscomfort2940 units="hr">28.00</SomeDiscomfort2940>
     <GreatDiscomfortAvoidExertion4045 units="hr">0.00</GreatDiscomfortAvoidExertion4045>
     <Dangerous4550 units="hr">0.00</Dangerous4550>
     <HeatStrokeQuitePossible50 units="hr">0.00</HeatStrokeQuitePossible50>
   </HumidexHours>
   <HumidexHours>
     <name>Max</name>
-    <LittleToNoDiscomfort29 units="hr">8760.00</LittleToNoDiscomfort29>
-    <SomeDiscomfort2940 units="hr">0.00</SomeDiscomfort2940>
+    <LittleToNoDiscomfort29 units="hr">8732.00</LittleToNoDiscomfort29>
+    <SomeDiscomfort2940 units="hr">28.00</SomeDiscomfort2940>
     <GreatDiscomfortAvoidExertion4045 units="hr">0.00</GreatDiscomfortAvoidExertion4045>
     <Dangerous4550 units="hr">0.00</Dangerous4550>
     <HeatStrokeQuitePossible50 units="hr">0.00</HeatStrokeQuitePossible50>
   </HumidexHours>
   <HumidexHours>
     <name>Average</name>
-    <LittleToNoDiscomfort29 units="hr">8760.00</LittleToNoDiscomfort29>
-    <SomeDiscomfort2940 units="hr">0.00</SomeDiscomfort2940>
+    <LittleToNoDiscomfort29 units="hr">8732.00</LittleToNoDiscomfort29>
+    <SomeDiscomfort2940 units="hr">28.00</SomeDiscomfort2940>
     <GreatDiscomfortAvoidExertion4045 units="hr">0.00</GreatDiscomfortAvoidExertion4045>
     <Dangerous4550 units="hr">0.00</Dangerous4550>
     <HeatStrokeQuitePossible50 units="hr">0.00</HeatStrokeQuitePossible50>
   </HumidexHours>
   <HumidexHours>
     <name>Sum</name>
-    <LittleToNoDiscomfort29 units="hr">8760.00</LittleToNoDiscomfort29>
-    <SomeDiscomfort2940 units="hr">0.00</SomeDiscomfort2940>
+    <LittleToNoDiscomfort29 units="hr">8732.00</LittleToNoDiscomfort29>
+    <SomeDiscomfort2940 units="hr">28.00</SomeDiscomfort2940>
     <GreatDiscomfortAvoidExertion4045 units="hr">0.00</GreatDiscomfortAvoidExertion4045>
     <Dangerous4550 units="hr">0.00</Dangerous4550>
     <HeatStrokeQuitePossible50 units="hr">0.00</HeatStrokeQuitePossible50>
@@ -3768,9 +3768,9 @@
   </Hvac>
   <InputFields>
     <name>Count</name>
-    <IdfObjects>54</IdfObjects>
-    <DefaultedFields>31</DefaultedFields>
-    <FieldsWithDefaults>172</FieldsWithDefaults>
+    <IdfObjects>52</IdfObjects>
+    <DefaultedFields>28</DefaultedFields>
+    <FieldsWithDefaults>167</FieldsWithDefaults>
     <AutosizedFields>0</AutosizedFields>
     <AutosizableFields>0</AutosizableFields>
     <AutocalculatedFields>3</AutocalculatedFields>

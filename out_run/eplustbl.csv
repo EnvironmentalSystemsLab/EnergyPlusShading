@@ -1,4 +1,4 @@
-Program Version:,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.24 10:37
+Program Version:,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31
 Tabular Output Report in Format: ,Comma
 
 Building:,Simple One Zone (Wireframe DXF)
@@ -193,7 +193,7 @@ FOR:,Entire Facility
 General
 
 ,,Value
-,Program Version and Build,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.24 10:37
+,Program Version and Build,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31
 ,RunPeriod,RUN PERIOD 1
 ,Weather File,Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
 ,Latitude [deg],41.98
@@ -575,7 +575,7 @@ Environment:Site Atmospheric Variation
 Shadowing/Sun Position Calculations Annual Simulations
 
 ,,Shading Calculation Method,Shading Calculation Update Frequency Method,Shading Calculation Update Frequency {days},Maximum Figures in Shadow Overlap Calculations {},Polygon Clipping Algorithm,Pixel Counting Resolution,Sky Diffuse Modeling Algorithm,Output External Shading Calculation Results,Disable Self-Shading Within Shading Zone Groups,Disable Self-Shading From Shading Zone Groups to Other Zones
-,1,Imported,Periodic,20,15000,SutherlandHodgman,512,DetailedSkyDiffuseModeling,No,No,No
+,1,IMPORTED,Periodic,20,15000,SutherlandHodgman,512,DetailedSkyDiffuseModeling,Yes,No,No
 
 
 Surface Geometry
@@ -703,7 +703,7 @@ Warmup Convergence Information
 ,,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
 ,1,ZONE ONE,SizingPeriod: DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB,1.8303609126E-005,2.0033988830E-006,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
 ,2,ZONE ONE,SizingPeriod: DENVER CENTENNIAL  GOLDEN   N ANN CLG 1% CONDNS DB=>MWB,7.9186956269E-002,3.4793522854E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
-,3,ZONE ONE,RunPeriod: RUN PERIOD 1,4.1043384628E-002,3.6580829551E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
+,3,ZONE ONE,RunPeriod: RUN PERIOD 1,4.8735575994E-002,5.2087775629E-002,Pass,Pass,0.0000000000,0.0000000000,Pass,Pass
 
 
 ----------------------------------------------------------------------------------------------------
@@ -712,7 +712,7 @@ FOR:,Entire Facility
 Annual Heat Emissions Summary
 
 ,,Envelope Convection,Zone Exfiltration,Zone Exhaust Air,HVAC Relief Air,HVAC Reject Heat,Total
-,Heat Emissions [GJ],538.24,0.00,0.00,0.00,0.00,538.25
+,Heat Emissions [GJ],709.28,0.00,0.00,0.00,0.00,709.28
 
 
 ----------------------------------------------------------------------------------------------------
@@ -721,11 +721,11 @@ FOR:,Entire Facility
 Heat Index Hours
 
 ,,Safe (≤ 26.7°C) [hr],Caution (> 26.7°C, ≤ 32.2°C) [hr],Extreme Caution (> 32.2°C, ≤ 39.4°C) [hr],Danger (> 39.4°C, ≤ 51.7°C) [hr],Extreme Danger (> 51.7°C) [hr]
-,ZONE ONE,8454.00,306.00,0.00,0.00,0.00
-,Min,8454.00,306.00,0.00,0.00,0.00
-,Max,8454.00,306.00,0.00,0.00,0.00
-,Average,8454.00,306.00,0.00,0.00,0.00
-,Sum,8454.00,306.00,0.00,0.00,0.00
+,ZONE ONE,8123.00,637.00,0.00,0.00,0.00
+,Min,8123.00,637.00,0.00,0.00,0.00
+,Max,8123.00,637.00,0.00,0.00,0.00
+,Average,8123.00,637.00,0.00,0.00,0.00
+,Sum,8123.00,637.00,0.00,0.00,0.00
 
 
 Heat Index OccupantHours
@@ -751,11 +751,11 @@ Heat Index OccupiedHours
 Humidex Hours
 
 ,,Little to no Discomfort (≤ 29) [hr],Some Discomfort (> 29, ≤ 40) [hr],Great Discomfort; Avoid Exertion (> 40, ≤ 45) [hr],Dangerous (> 45, ≤ 50) [hr],Heat Stroke Quite Possible (> 50) [hr]
-,ZONE ONE,8760.00,0.00,0.00,0.00,0.00
-,Min,8760.00,0.00,0.00,0.00,0.00
-,Max,8760.00,0.00,0.00,0.00,0.00
-,Average,8760.00,0.00,0.00,0.00,0.00
-,Sum,8760.00,0.00,0.00,0.00,0.00
+,ZONE ONE,8732.00,28.00,0.00,0.00,0.00
+,Min,8732.00,28.00,0.00,0.00,0.00
+,Max,8732.00,28.00,0.00,0.00,0.00
+,Average,8732.00,28.00,0.00,0.00,0.00
+,Sum,8732.00,28.00,0.00,0.00,0.00
 
 
 Humidex OccupantHours
@@ -1397,9 +1397,9 @@ HVAC
 Input Fields
 
 ,,Count
-,IDF Objects,54
-,Defaulted Fields,31
-,Fields with Defaults,172
+,IDF Objects,52
+,Defaulted Fields,28
+,Fields with Defaults,167
 ,Autosized Fields,0
 ,Autosizable Fields,0
 ,Autocalculated Fields,3

@@ -1,7 +1,4 @@
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.24 10:37,
-   ** Warning ** ProcessScheduleInput: Schedule:File = ELECTDVFROMCZ01RES
-   **   ~~~   ** Schedule Type Limits Name = ANY NUMBER, item not found.
-   **   ~~~   ** Schedule will not be validated.
+Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31,
    ** Warning ** Weather file location will be used rather than entered (IDF) Location object.
    **   ~~~   ** ..Location object=DENVER CENTENNIAL  GOLDEN   N_CO_USA DESIGN_CONDITIONS
    **   ~~~   ** ..Weather File Location=Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
@@ -9,22 +6,12 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.24 10:37,
    **   ~~~   ** ..Time Zone difference=[1.0] hour(s), Elevation difference=[89.01] percent, [1628.00] meters.
    ** Warning ** SetUpDesignDay: Entered DesignDay Barometric Pressure=81198 differs by more than 10% from Standard Barometric Pressure=98934.
    **   ~~~   ** ...occurs in DesignDay=DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB, Standard Pressure (based on elevation) will be used.
+   ** Warning ** ShadowCalculation: invalid Shading Calculation Method
+   **   ~~~   ** Value entered="IMPORTED" while no Schedule:File:Shading object is defined, InternalCalculation will be used.
    ** Warning ** GetShadowingInput: DetailedSkyDiffuseModeling is chosen but not needed as either the shading transmittance for shading devices does not change throughout the year
    **   ~~~   **  or MinimalShadowing has been chosen.
    **   ~~~   ** Simulation should be set to use SimpleSkyDiffuseModeling, but is left at Detailed for simulation.
    **   ~~~   ** Choose SimpleSkyDiffuseModeling in the ShadowCalculation object to reduce computation time.
-   ** Warning ** processShadowingInput: sunlit fraction schedule not found for ZN001:WALL001 when using ImportedShading.
-   **   ~~~   ** These values are set to 1.0.
-   ** Warning ** processShadowingInput: sunlit fraction schedule not found for ZN001:WALL002 when using ImportedShading.
-   **   ~~~   ** These values are set to 1.0.
-   ** Warning ** processShadowingInput: sunlit fraction schedule not found for ZN001:WALL003 when using ImportedShading.
-   **   ~~~   ** These values are set to 1.0.
-   ** Warning ** processShadowingInput: sunlit fraction schedule not found for ZN001:WALL004 when using ImportedShading.
-   **   ~~~   ** These values are set to 1.0.
-   ** Warning ** processShadowingInput: sunlit fraction schedule not found for ZN001:FLR001 when using ImportedShading.
-   **   ~~~   ** These values are set to 1.0.
-   ** Warning ** processShadowingInput: sunlit fraction schedule not found for ZN001:ROOF001 when using ImportedShading.
-   **   ~~~   ** These values are set to 1.0.
    ** Warning ** SetUpDesignDay: Entered DesignDay Barometric Pressure=81198 differs by more than 10% from Standard Barometric Pressure=98934.
    **   ~~~   ** ...occurs in DesignDay=DENVER CENTENNIAL  GOLDEN   N ANN CLG 1% CONDNS DB=>MWB, Standard Pressure (based on elevation) will be used.
    ************* Testing Individual Branch Integrity
@@ -36,10 +23,6 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.11.24 10:37,
    ************* No node connection errors were found.
    ************* Beginning Simulation
    ************* Simulation Error Summary *************
-   ************* There are 7 unused schedules in input.
-   ************* There are 2556 unused week schedules in input.
-   ************* There are 2556 unused day schedules in input.
-   ************* Use Output:Diagnostics,DisplayUnusedSchedules; to see them.
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 11 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  1.26sec
+   ************* EnergyPlus Completed Successfully-- 5 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  1.25sec

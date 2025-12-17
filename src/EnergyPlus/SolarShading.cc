@@ -5149,10 +5149,12 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
             }
         }
     }
+    // ESL edit start
     // std::cout << "detailedskydiffuse " << state.dataSysVars->DetailedSkyDiffuseAlgorithm << std::endl;
     // std::cout << "shadingtransmittancevaries " << s_surf->ShadingTransmittanceVaries << std::endl;
     // std::cout << "SolarDistribution " << (state.dataHeatBal->SolarDistribution != DataHeatBalance::Shadowing::Minimal) << std::endl;
     //   Note -- if not the below, values are set in SkyDifSolarShading routine (constant for simulation)
+    bool loadedImportedSched = false;
     if (state.dataSysVars->DetailedSkyDiffuseAlgorithm && s_surf->ShadingTransmittanceVaries &&
         state.dataHeatBal->SolarDistribution != DataHeatBalance::Shadowing::Minimal) {
         for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) {
@@ -5209,9 +5211,11 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
                     }
                 }
                 csvFile.close();
+                loadedImportedSched = true;
             }
-        } else{
+        } if (!loadedImportedSched) {
             std::cout << "not using import" << std::endl;
+            // ESL edit end
             for (int IPhi = 0; IPhi < NPhi; ++IPhi) { // Loop over patch altitude values
                 // std::cout << "IPhi: " << IPhi << "/" << NPhi << std::endl;
                 state.dataSolarShading->SUNCOS(3) = state.dataSolarShading->sin_Phi[IPhi];
@@ -5281,6 +5285,7 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
                         (state.dataSolarShading->SurfWithShdgHoriz(SurfNum)) / (state.dataSolarShading->SurfWoShdgHoriz(SurfNum) + Eps);
                 }
             }
+            // ESL edit start
             if (state.dataSysVars->ReportExtShadingSunlitFrac) {
                 std::cout << "Dumping computed surface attributes to CSV file" << std::endl;
                 std::ofstream csvOut("computed_surface_attributes_hourly.csv");
@@ -5322,6 +5327,7 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
                     std::cout << "Successfully wrote computed_surface_attributes_hourly.csv" << std::endl;
                 }
             }
+            // ESL edit end
 
         }
 
@@ -10724,6 +10730,8 @@ void SkyDifSolarShading(EnergyPlusData &state)
     std::cout << (!state.dataGlobal->DoingSizing) << std::endl;
     std::cout << (state.dataGlobal->KindOfSim == Constant::KindOfSim::RunPeriodWeather) << std::endl;
 
+    bool loadedImportedSched = false;
+
     // ESL edit start vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
     // if ((state.dataSysVars->shadingMethod == ShadingMethod::Scheduled || state.dataSysVars->shadingMethod == ShadingMethod::Imported) &&
         // !state.dataGlobal->DoingSizing && state.dataGlobal->KindOfSim == Constant::KindOfSim::RunPeriodWeather) {
@@ -10732,39 +10740,14 @@ void SkyDifSolarShading(EnergyPlusData &state)
             
             // Load surface attributes from CSV file instead of computing them
             std::cout << "Loading surface attributes from CSV file" << std::endl;
-            // auto scheduleMap = state.dataSched->UniqueProcessedExternalFiles;
             std::string shadingSchedFilePath = state.dataSched->ShadingSunlitFracFileName;
-            // // FIXME: currently just gets the first one
-            // for (const auto& pair : scheduleMap) {
-            //     // shadingSchedFilePath = pair.first.string();
-            //     std::cout << "Found shading schedule file path: " << shadingSchedFilePath << std::endl;
-            //     for (auto& [key, val] : pair.second.items()){
-            //         std::cout << "key: " << key << '\n';
-            //     }
-            //     break;
-            // }
-            // for (const auto& pair : scheduleMap) {
-            //     std::cout << "Found shading schedule file path: " << pair.first.string() << std::endl;
-            // }
             const int dot_pos = shadingSchedFilePath.rfind(".");
             const std::string csvFilePath = shadingSchedFilePath.substr(0, dot_pos) + "_diffuse.csv";
             std::ifstream csvFile(csvFilePath);
             std::cout << "Reading from " << csvFilePath << std::endl;
             
-            if (!csvFile.is_open()) {
+            if (!csvFile.is_open()) { // loadedImportedSched remains false, will jump to the original diffuse calc
                 ShowWarningError(state, "Could not open input csv for reading. Using default values.");
-                
-                // Fallback to default values if CSV file can't be opened
-                for (int SurfNum : s_surf->AllExtSolAndShadingSurfaceList) {
-                    state.dataSolarShading->SurfDifShdgRatioIsoSky(SurfNum) = 1.0;
-                    state.dataSolarShading->SurfDifShdgRatioHoriz(SurfNum) = 1.0;
-                }
-                
-                for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) {
-                    auto &surface = s_surf->Surface(SurfNum);
-                    surface.ViewFactorSkyIR = 0.5;  // Default value
-                    surface.ViewFactorGroundIR = 0.5;  // Default value
-                }
             } else {
                 std::string line;
 
@@ -10833,9 +10816,11 @@ void SkyDifSolarShading(EnergyPlusData &state)
                     std::cout << "SurfNum " << surfNum << " ViewFactorSkyIR: " << s_surf->Surface(surfNum).ViewFactorSkyIR
                             << " ViewFactorGroundIR: " << s_surf->Surface(surfNum).ViewFactorGroundIR << std::endl;
                 }
+
+                loadedImportedSched = true;
             }
         }
-    else{
+    if (!loadedImportedSched) {
         // ESL edit end ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         for (int IPhi = 0; IPhi < NPhi; ++IPhi) { // Loop over patch altitude values
             state.dataSolarShading->SUNCOS(3) = state.dataSolarShading->sin_Phi[IPhi];
@@ -10949,9 +10934,9 @@ void SkyDifSolarShading(EnergyPlusData &state)
         // ESL edit start - Add CSV output for computed surface attributes
         if (state.dataSysVars->ReportExtShadingSunlitFrac) {
             std::cout << "Dumping computed surface attributes to CSV file" << std::endl;
-            std::ofstream csvOut("computed_surface_attributes.csv");
+            std::ofstream csvOut("eplusshading_diffuse.csv");
             if (!csvOut.is_open()) {
-                ShowWarningError(state, "Could not open computed_surface_attributes.csv for writing.");
+                ShowWarningError(state, "Could not open eplusshading_diffuse.csv for writing.");
             } else {
                 // Write header row with surface names and attributes (no SurfNum or SurfName)
                 csvOut << "Surface Name";
