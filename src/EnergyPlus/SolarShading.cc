@@ -10787,7 +10787,7 @@ void SkyDifSolarShading(EnergyPlusData &state)
             const std::string csvFilePath = shadingSchedFilePath.substr(0, dot_pos) + "_diffuse.csv";
             std::ifstream csvFile(csvFilePath);
             std::cout << "Reading from " << csvFilePath << std::endl;
-            
+            int numlines = 0;
             if (!csvFile.is_open()) { // loadedImportedSched remains false, will jump to the original diffuse calc
                 ShowWarningError(state, "Could not open input csv for reading. Using default values.");
             } else {
@@ -10795,6 +10795,7 @@ void SkyDifSolarShading(EnergyPlusData &state)
 
                 // Skip the header line
                 if (std::getline(csvFile, line)) {
+                    numlines ++;
                     // Read the data line
                     if (std::getline(csvFile, line)) {
                         std::istringstream ss(line);
@@ -10859,7 +10860,7 @@ void SkyDifSolarShading(EnergyPlusData &state)
                             << " ViewFactorGroundIR: " << s_surf->Surface(surfNum).ViewFactorGroundIR << std::endl;
                 }
 
-                loadedImportedSched = true;
+                loadedImportedSched = (numlines == 1);
             }
         }
     if (!loadedImportedSched) {
