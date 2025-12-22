@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31
+Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.22 03:11
 ! This file shows details about the branches, nodes, and other
 ! elements of the flow connections.
 ! This file is intended for use in "debugging" potential problems
@@ -8,7 +8,18 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31
 ! schematic diagram of the HVAC system.
 ! ===============================================================
 ! #Nodes,<Number of Unique Nodes>
- #Nodes,0
+ #Nodes,4
+! <Node>,<NodeNumber>,<Node Name>,<Node Fluid Type>,<# Times Node Referenced After Definition>
+ Node,1,NODE ZONE_0 IN,Air,2
+ Node,2,NODE ZONE_0 ZONE,Air,0
+ Node,3,NODE ZONE_0 OUT,Air,0
+ Node,4,ZONE_0OUTDOORINLET,Air,1
+! ===============================================================
+! Suspicious nodes have 0 references.  It is normal for some nodes, however.
+! Listing nodes with 0 references (culled from previous list):
+! <Suspicious Node>,<NodeNumber>,<Node Name>,<Node Fluid Type>,<# Times Node Referenced After Definition>
+ Suspicious Node,2,NODE ZONE_0 ZONE,Air,0
+ Suspicious Node,3,NODE ZONE_0 OUT,Air,0
 ! ===============================================================
 ! <#Branch Lists>,<Number of Branch Lists>
  #Branch Lists,0
@@ -32,7 +43,9 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31
 ! <Return Air Path Component Nodes>,<Node Count>,<Component Type>,<Component Name>,<Inlet Node Name>,<Outlet Node Name>,<AirLoopHVAC Name>
 ! ===============================================================
 ! #Outdoor Air Nodes,<Number of Outdoor Air Nodes>
- #Outdoor Air Nodes,0
+ #Outdoor Air Nodes,1
+! <Outdoor Air Node>,<NodeNumber>,<Node Name>
+ Outdoor Air Node,4,ZONE_0OUTDOORINLET
 ! ===============================================================
 ! <#Component Sets>,<Number of Component Sets>
  #Component Sets,0
@@ -56,6 +69,21 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31
 ! <Condenser Loop Supply Connection>,<Condenser Loop Name>,<Supply Side Outlet Node Name>,<Demand Side Inlet Node Name>
 ! <Condenser Loop Return Connection>,<Condenser Loop Name>,<Demand Side Outlet Node Name>,<Supply Side Inlet Node Name>
 ! ===============================================================
+! <# Controlled Zones>,<Number of Controlled Zones>
+ #Controlled Zones,1
+! <Controlled Zone>,<Controlled Zone Name>,<Equip List Name>,<Control List Name>,<Zone Node Name>,<# Inlet Nodes>,<# Exhaust Nodes>,<# Return Nodes>
+! <Controlled Zone Inlet>,<Inlet Node Count>,<Controlled Zone Name>,<Supply Air Inlet Node Name>,<SD Sys:Cooling/Heating [DD:Cooling] Inlet Node Name>,<DD Sys:Heating Inlet Node Name>
+! <Controlled Zone Exhaust>,<Exhaust Node Count>,<Controlled Zone Name>,<Exhaust Air Node Name>
+ Controlled Zone,ZONE_0,ZONE_0 EQUIPMENT,,NODE ZONE_0 ZONE,1,0,1
+   Controlled Zone Inlet,1,ZONE_0,NODE ZONE_0 IN,Undefined,N/A
+   Controlled Zone Return,1,ZONE_0,NODE ZONE_0 OUT
+! ===============================================================
+! <#Zone Equipment Lists>,<Number of Zone Equipment Lists>
+ #Zone Equipment Lists,1
+! <Zone Equipment List>,<Zone Equipment List Count>,<Zone Equipment List Name>,<Zone Name>,<Number of Components>
+! <Zone Equipment Component>,<Component Count>,<Component Type>,<Component Name>,<Zone Name>,<Heating Priority>,<Cooling Priority>
+ Zone Equipment List,1,ZONE_0 EQUIPMENT,ZONE_0,1
+   Zone Equipment Component,1,ZONEHVAC:IDEALLOADSAIRSYSTEM,ZONE_0 IDEAL LOADS AIR,ZONE_0,1,1
 ! ===============================================================
 ! <#AirLoopHVACs>,<Number of AirLoopHVACs>
  #AirLoopHVACs,0
@@ -74,5 +102,11 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 03:31
 ! <Parent Node Connection>,<Node Name>,<Node ObjectType>,<Node ObjectName>,<Node ConnectionType>,<Node FluidStream>
 ! ===============================================================
 ! <#Non-Parent Node Connections>,<Number of Non-Parent Node Connections>
- #Non-Parent Node Connections,0
+ #Non-Parent Node Connections,6
 ! <Non-Parent Node Connection>,<Node Name>,<Node ObjectType>,<Node ObjectName>,<Node ConnectionType>,<Node FluidStream>
+ Non-Parent Node Connection,NODE ZONE_0 ZONE,ZONEHVAC:EQUIPMENTCONNECTIONS,ZONE_0,ZoneNode,1
+ Non-Parent Node Connection,NODE ZONE_0 IN,ZONEHVAC:EQUIPMENTCONNECTIONS,ZONE_0,ZoneInlet,1
+ Non-Parent Node Connection,NODE ZONE_0 OUT,ZONEHVAC:EQUIPMENTCONNECTIONS,ZONE_0,ZoneReturn,1
+ Non-Parent Node Connection,NODE ZONE_0 IN,ZONEHVAC:IDEALLOADSAIRSYSTEM,ZONE_0 IDEAL LOADS AIR,Outlet,1
+ Non-Parent Node Connection,ZONE_0OUTDOORINLET,ZONEHVAC:IDEALLOADSAIRSYSTEM,ZONE_0 IDEAL LOADS AIR,Outlet,1
+ Non-Parent Node Connection,ZONE_0OUTDOORINLET,OUTDOORAIR:NODE,OutdoorAir:Node,OutdoorAir,1

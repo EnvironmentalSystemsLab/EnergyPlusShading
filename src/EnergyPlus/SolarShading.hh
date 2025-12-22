@@ -218,7 +218,7 @@ namespace SolarShading {
                           Real64 const CosSolarDeclin  // value of Cosine of Solar Declination for period
     );
 
-    void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const iTimeStep);
+    void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const iTimeStep, std::vector<std::vector<Real64>> const &importedSched = {});
 
     void DetermineShadowingCombinations(EnergyPlusData &state);
 

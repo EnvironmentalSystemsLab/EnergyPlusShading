@@ -5012,15 +5012,94 @@ void CalcPerSolarBeam(EnergyPlusData &state,
     }
     // Initialize/update the Complex Fenestration geometry and optical properties
     UpdateComplexWindows(state);
+
+    // ESL edit start
+    bool loadedHourlySched = false;
+
+    // 3D array to store shading factor values, [time][surface][factor]
+    std::vector<std::vector<std::vector<Real64>>> importedSched;
+    importedSched.resize(state.dataGlobal->TimeStepsInHour * 24);
+
+    if (state.dataSysVars->shadingMethod==ShadingMethod::Imported){
+        std::cout << "using import" << std::endl;
+        std::string shadingSchedFilePath = state.dataSched->ShadingSunlitFracFileName;
+        const int dot_pos = shadingSchedFilePath.rfind(".");
+        const std::string csvFilePath = shadingSchedFilePath.substr(0, dot_pos) + "_diffuse.csv";
+        std::ifstream csvFile(csvFilePath);
+        std::cout << "Reading from " << csvFilePath << std::endl;
+        if (!csvFile.is_open()) {
+            ShowWarningError(state, "Could not open csv for reading.");
+        } else {
+            // TODO: add comments to show that the code differentiates hourly vs one-liner schedule
+            // TODO: boolean flag to detect data resolution inside csv
+            int timestep = -1;
+            std::string line;
+            while (std::getline(csvFile, line)) {
+                timestep ++;
+                if (timestep == 0) {
+                    continue;
+                }
+                importedSched[timestep].resize(s_surf->AllExtSolAndShadingSurfaceList.size());
+
+                std::istringstream ss(line);
+                std::string value;
+                std::getline(ss, value, ','); // Skip the first value (TimeStamp)
+                // Parse the flattened data: each surface has 4 values in sequence
+                // (SurfDifShdgRatioIsoSky, SurfDifShdgRatioHoriz, ViewFactorSkyIR, ViewFactorGroundIR)
+                int surfIndex = 0; // Index into the AllExtSolAndShadingSurfaceList
+                while (std::getline(ss, value, ',') && surfIndex < s_surf->AllExtSolAndShadingSurfaceList.size()) {
+                    
+                    // Get the actual surface number from the list
+                    int surfNum = s_surf->AllExtSolAndShadingSurfaceList[surfIndex];
+                    
+                    Real64 SurfWithShdgIsoSky = std::stod(value);
+                    if (!std::getline(ss, value, ',')) break;
+                    Real64 SurfWoShdgIsoSky = std::stod(value);
+                    if (!std::getline(ss, value, ',')) break;
+                    Real64 SurfWithShdgHoriz = std::stod(value);
+                    if (!std::getline(ss, value, ',')) break;
+                    Real64 SurfWoShdgHoriz = std::stod(value);
+
+                    importedSched[timestep][surfIndex] = {SurfWithShdgIsoSky, SurfWoShdgIsoSky, SurfWithShdgHoriz, SurfWoShdgHoriz};
+                    // TODO: instead of calling FigureSolarBeamAtTimestep, maybe we can simply set the values here. 
+                    //       But I'm not sure if FigureSolarBeamAtTimestep has any other side-effects
+                    // if (surfNum >= 1 && surfNum <= s_surf->TotSurfaces) {
+                    //     state.dataSolarShading->SurfWithShdgIsoSky(surfNum) = SurfWithShdgIsoSky;
+                    //     state.dataSolarShading->SurfWoShdgIsoSky(surfNum) = SurfWoShdgIsoSky;
+                    //     state.dataSolarShading->SurfWithShdgHoriz(surfNum) = SurfWithShdgHoriz;
+                    //     state.dataSolarShading->SurfWoShdgHoriz(surfNum) = SurfWoShdgHoriz;
+                    // }
+                    
+                    surfIndex++; // Move to next surface in the list
+                }
+            }
+            csvFile.close();
+            loadedHourlySched = timestep > 0;
+        }
+    }
+
+    // ESL edit end
+
     if (!state.dataSysVars->DetailedSolarTimestepIntegration) {
         for (iHour = 1; iHour <= 24; ++iHour) { // Do for all hours.
             for (TS = 1; TS <= state.dataGlobal->TimeStepsInHour; ++TS) {
-                FigureSolarBeamAtTimestep(state, iHour, TS);
+                if (loadedHourlySched) {
+                    FigureSolarBeamAtTimestep(state, iHour, TS, importedSched[(iHour-1)*state.dataGlobal->TimeStepsInHour + (TS-1)]);
+                }
+                else{
+                    FigureSolarBeamAtTimestep(state, iHour, TS);
+                }
             } // TimeStep Loop
         } // Hour Loop
     } else {
-        FigureSolarBeamAtTimestep(state, state.dataGlobal->HourOfDay, state.dataGlobal->TimeStep);
+        if (loadedHourlySched) {
+            FigureSolarBeamAtTimestep(state, state.dataGlobal->HourOfDay, state.dataGlobal->TimeStep, importedSched[(state.dataGlobal->HourOfDay-1)*state.dataGlobal->TimeStepsInHour + (state.dataGlobal->TimeStep-1)]);
+        }
+        else {
+            FigureSolarBeamAtTimestep(state, state.dataGlobal->HourOfDay, state.dataGlobal->TimeStep);
+        }
     }
+    // TODO: avoid rereading shading csv each timestep, just read from here and pass values to FigureSolarBeamAtTimestep
 }
 
 void FigureSunCosines(EnergyPlusData &state,
@@ -5071,7 +5150,7 @@ void FigureSunCosines(EnergyPlusData &state,
 }
 
 // ESL: Direct Sunlit Fractions
-void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const iTimeStep)
+void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const iTimeStep, std::vector<std::vector<Real64>> const &importedSched)
 {
 
     // SUBROUTINE INFORMATION:
@@ -5154,7 +5233,6 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
     // std::cout << "shadingtransmittancevaries " << s_surf->ShadingTransmittanceVaries << std::endl;
     // std::cout << "SolarDistribution " << (state.dataHeatBal->SolarDistribution != DataHeatBalance::Shadowing::Minimal) << std::endl;
     //   Note -- if not the below, values are set in SkyDifSolarShading routine (constant for simulation)
-    bool loadedImportedSched = false;
     if (state.dataSysVars->DetailedSkyDiffuseAlgorithm && s_surf->ShadingTransmittanceVaries &&
         state.dataHeatBal->SolarDistribution != DataHeatBalance::Shadowing::Minimal) {
         for (int SurfNum = 1; SurfNum <= s_surf->TotSurfaces; ++SurfNum) {
@@ -5163,57 +5241,21 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state, int const iHour, int const
             state.dataSolarShading->SurfWithShdgHoriz(SurfNum) = 0.;
             state.dataSolarShading->SurfWoShdgHoriz(SurfNum) = 0.;
         }
-        if (state.dataSysVars->shadingMethod==ShadingMethod::Imported){
-            std::cout << "using import" << std::endl;
-            std::string shadingSchedFilePath = state.dataSched->ShadingSunlitFracFileName;
-            const int dot_pos = shadingSchedFilePath.rfind(".");
-            const std::string csvFilePath = shadingSchedFilePath.substr(0, dot_pos) + "_diffuse.csv";
-            std::ifstream csvFile(csvFilePath);
-            std::cout << "Reading from " << csvFilePath << std::endl;
-            if (!csvFile.is_open()) {
-                ShowWarningError(state, "Could not open csv for reading.");
-            } else {
-                int numSkipLines = state.dataGlobal->TimeStepsInHour * iHour + iTimeStep;
-                std::string line;
-                while (std::getline(csvFile, line)) {
-                    if (numSkipLines > 0) {
-                        --numSkipLines;
-                        continue;
-                    }
-                    std::istringstream ss(line);
-                    std::string value;
-                    std::getline(ss, value, ','); // Skip the first value (TimeStamp)
-                    // Parse the flattened data: each surface has 4 values in sequence
-                    // (SurfDifShdgRatioIsoSky, SurfDifShdgRatioHoriz, ViewFactorSkyIR, ViewFactorGroundIR)
-                    int surfIndex = 0; // Index into the AllExtSolAndShadingSurfaceList
-                    while (std::getline(ss, value, ',') && surfIndex < s_surf->AllExtSolAndShadingSurfaceList.size()) {
-                        
-                        // Get the actual surface number from the list
-                        int surfNum = s_surf->AllExtSolAndShadingSurfaceList[surfIndex];
-                        
-                        Real64 SurfWithShdgIsoSky = std::stod(value);
-                        if (!std::getline(ss, value, ',')) break;
-                        Real64 SurfWoShdgIsoSky = std::stod(value);
-                        if (!std::getline(ss, value, ',')) break;
-                        Real64 SurfWithShdgHoriz = std::stod(value);
-                        if (!std::getline(ss, value, ',')) break;
-                        Real64 SurfWoShdgHoriz = std::stod(value);
-                        
-                        // Validate surface number range
-                        if (surfNum >= 1 && surfNum <= s_surf->TotSurfaces) {
-                            state.dataSolarShading->SurfWithShdgIsoSky(surfNum) = SurfWithShdgIsoSky;
-                            state.dataSolarShading->SurfWoShdgIsoSky(surfNum) = SurfWoShdgIsoSky;
-                            state.dataSolarShading->SurfWithShdgHoriz(surfNum) = SurfWithShdgHoriz;
-                            state.dataSolarShading->SurfWoShdgHoriz(surfNum) = SurfWoShdgHoriz;
-                        }
-                        
-                        surfIndex++; // Move to next surface in the list
-                    }
+        if (importedSched.size() > 0) {
+            for (int surfIndex = 0; surfIndex < s_surf->AllExtSolAndShadingSurfaceList.size(); surfIndex ++) {
+                
+                // Get the actual surface number from the list
+                int surfNum = s_surf->AllExtSolAndShadingSurfaceList[surfIndex];
+                
+                // Validate surface number range
+                if (surfNum >= 1 && surfNum <= s_surf->TotSurfaces) {
+                    state.dataSolarShading->SurfWithShdgIsoSky(surfNum) = importedSched[surfIndex][0];
+                    state.dataSolarShading->SurfWoShdgIsoSky(surfNum) = importedSched[surfIndex][1];
+                    state.dataSolarShading->SurfWithShdgHoriz(surfNum) = importedSched[surfIndex][2];
+                    state.dataSolarShading->SurfWoShdgHoriz(surfNum) = importedSched[surfIndex][3];
                 }
-                csvFile.close();
-                loadedImportedSched = true;
             }
-        } if (!loadedImportedSched) {
+        } else {
             std::cout << "not using import" << std::endl;
             // ESL edit end
             for (int IPhi = 0; IPhi < NPhi; ++IPhi) { // Loop over patch altitude values
