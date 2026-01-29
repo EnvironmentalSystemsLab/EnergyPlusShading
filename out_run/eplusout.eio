@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.22 03:11
+Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.01.22 10:26
 ! <Version>, Version ID
  Version, 25.2
 ! <Timesteps per Hour>, #TimeSteps, Minutes per TimeStep {minutes}
@@ -129,30 +129,30 @@ Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
  Cooling Sizing Factor Information, Global,          1.5
  Cooling Sizing Factor Information, Zone ZONE_0,         1.15
 ! <Sky Daylight Factors>, Sky Type, MonthAndDay, Daylighting Control Name, Enclosure Name, Window Name, Reference Point, Daylight Factor
- Sky Daylight Factors,Clear Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F0:W0,ZONE_0_DAYLCTRLREFPT1,2.5105E-004
- Sky Daylight Factors,Clear Turbid Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F0:W0,ZONE_0_DAYLCTRLREFPT1,2.5020E-004
- Sky Daylight Factors,Intermediate Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F0:W0,ZONE_0_DAYLCTRLREFPT1,2.4753E-004
- Sky Daylight Factors,Overcast Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F0:W0,ZONE_0_DAYLCTRLREFPT1,2.4823E-004
- Sky Daylight Factors,Clear Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F1:W0,ZONE_0_DAYLCTRLREFPT1,3.4424E-002
- Sky Daylight Factors,Clear Turbid Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F1:W0,ZONE_0_DAYLCTRLREFPT1,3.4300E-002
- Sky Daylight Factors,Intermediate Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F1:W0,ZONE_0_DAYLCTRLREFPT1,2.8069E-002
- Sky Daylight Factors,Overcast Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F1:W0,ZONE_0_DAYLCTRLREFPT1,2.2827E-002
+ Sky Daylight Factors,Clear Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F0:W0,ZONE_0_DAYLCTRLREFPT1,3.1042E-002
+ Sky Daylight Factors,Clear Turbid Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F0:W0,ZONE_0_DAYLCTRLREFPT1,2.7638E-002
+ Sky Daylight Factors,Intermediate Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F0:W0,ZONE_0_DAYLCTRLREFPT1,2.3721E-002
+ Sky Daylight Factors,Overcast Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F0:W0,ZONE_0_DAYLCTRLREFPT1,3.3328E-002
+ Sky Daylight Factors,Clear Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F1:W0,ZONE_0_DAYLCTRLREFPT1,4.9574E-002
+ Sky Daylight Factors,Clear Turbid Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F1:W0,ZONE_0_DAYLCTRLREFPT1,4.9236E-002
+ Sky Daylight Factors,Intermediate Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F1:W0,ZONE_0_DAYLCTRLREFPT1,4.0251E-002
+ Sky Daylight Factors,Overcast Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F1:W0,ZONE_0_DAYLCTRLREFPT1,3.3058E-002
  Sky Daylight Factors,Clear Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F2:W0,ZONE_0_DAYLCTRLREFPT1,3.0416E-002
  Sky Daylight Factors,Clear Turbid Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F2:W0,ZONE_0_DAYLCTRLREFPT1,2.6932E-002
  Sky Daylight Factors,Intermediate Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F2:W0,ZONE_0_DAYLCTRLREFPT1,2.3046E-002
  Sky Daylight Factors,Overcast Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F2:W0,ZONE_0_DAYLCTRLREFPT1,3.3325E-002
- Sky Daylight Factors,Clear Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F3:W0,ZONE_0_DAYLCTRLREFPT1,1.6486E-002
- Sky Daylight Factors,Clear Turbid Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F3:W0,ZONE_0_DAYLCTRLREFPT1,1.3589E-002
- Sky Daylight Factors,Intermediate Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F3:W0,ZONE_0_DAYLCTRLREFPT1,1.0196E-002
- Sky Daylight Factors,Overcast Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F3:W0,ZONE_0_DAYLCTRLREFPT1,2.3097E-002
+ Sky Daylight Factors,Clear Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F3:W0,ZONE_0_DAYLCTRLREFPT1,2.3956E-002
+ Sky Daylight Factors,Clear Turbid Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F3:W0,ZONE_0_DAYLCTRLREFPT1,1.9717E-002
+ Sky Daylight Factors,Intermediate Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F3:W0,ZONE_0_DAYLCTRLREFPT1,1.4718E-002
+ Sky Daylight Factors,Overcast Sky,07/13,ZONE_0_DAYLCTRL,ZONE_0,ZONE_0:F3:W0,ZONE_0_DAYLCTRLREFPT1,3.3328E-002
 ! <Zone Sizing Information>, Zone Name, Load Type, Calc Des Load {W}, User Des Load {W}, Calc Des Air Flow Rate {m3/s}, User Des Air Flow Rate {m3/s}, Design Day Name, Date/Time of Peak, Temperature at Peak {C}, Humidity Ratio at Peak {kgWater/kgDryAir}, Floor Area {m2}, # Occupants, Calc Outdoor Air Flow Rate {m3/s}, Calc DOAS Heat Addition Rate {W}
- Zone Sizing Information, ZONE_0, Cooling, 1372.61057, 1578.50216, 8.17130E-002, 9.39700E-002, EXTREME SUMMER WEATHER PERIOD FOR DESIGN, 7/18 12:10:00, 33.30000, 1.78128E-002, 16.00000, 1.14240, 2.74240E-002, 0.00000
- Zone Sizing Information, ZONE_0, Heating, 5182.58725, 5959.97533, 0.29006, 0.33357, EXTREME WINTER WEATHER PERIOD FOR DESIGN, 1/27 07:10:00, -21.10000, 3.02337E-004, 16.00000, 1.14240, 2.74240E-002, 0.00000
+ Zone Sizing Information, ZONE_0, Cooling, 170.01456, 195.51675, 1.01130E-002, 2.74240E-002, EXTREME SUMMER WEATHER PERIOD FOR DESIGN, 7/18 16:10:00, 33.61667, 1.75254E-002, 16.00000, 1.14240, 2.74240E-002, 0.00000
+ Zone Sizing Information, ZONE_0, Heating, 5656.77294, 6505.28888, 0.31660, 0.36409, EXTREME WINTER WEATHER PERIOD FOR DESIGN, 1/27 07:10:00, -21.10000, 3.02337E-004, 16.00000, 1.14240, 2.74240E-002, 0.00000
 ! <Component Sizing Information>, Component Type, Component Name, Input Field Description, Value
- Component Sizing Information, ZoneHVAC:IdealLoadsAirSystem, ZONE_0 IDEAL LOADS AIR, Design Size Maximum Heating Air Flow Rate [m3/s], 0.33357
- Component Sizing Information, ZoneHVAC:IdealLoadsAirSystem, ZONE_0 IDEAL LOADS AIR, Design Size Maximum Sensible Heating Capacity [W], 7301.27987
- Component Sizing Information, ZoneHVAC:IdealLoadsAirSystem, ZONE_0 IDEAL LOADS AIR, Design Size Maximum Cooling Air Flow Rate [m3/s], 9.39700E-002
- Component Sizing Information, ZoneHVAC:IdealLoadsAirSystem, ZONE_0 IDEAL LOADS AIR, Design Size Maximum Total Cooling Capacity [W], 3147.64560
+ Component Sizing Information, ZoneHVAC:IdealLoadsAirSystem, ZONE_0 IDEAL LOADS AIR, Design Size Maximum Heating Air Flow Rate [m3/s], 0.36409
+ Component Sizing Information, ZoneHVAC:IdealLoadsAirSystem, ZONE_0 IDEAL LOADS AIR, Design Size Maximum Sensible Heating Capacity [W], 7846.59235
+ Component Sizing Information, ZoneHVAC:IdealLoadsAirSystem, ZONE_0 IDEAL LOADS AIR, Design Size Maximum Cooling Air Flow Rate [m3/s], 2.74240E-002
+ Component Sizing Information, ZoneHVAC:IdealLoadsAirSystem, ZONE_0 IDEAL LOADS AIR, Design Size Maximum Total Cooling Capacity [W], 1416.86238
 ! <Zone Surfaces>,Zone Name,# Surfaces
 ! <Shading Surfaces>,Number of Shading Surfaces,# Surfaces
 ! <HeatTransfer Surface>,Surface Name,Surface Class,Base Surface,Heat Transfer Algorithm,Construction,Nominal U (w/o film coefs) {W/m2-K},Nominal U (with film coefs) {W/m2-K},Solar Diffusing,Area (Net) {m2},Area (Gross) {m2},Area (Sunlit Calc) {m2},Azimuth {deg},Tilt {deg},~Width {m},~Height {m},Reveal {m},ExtBoundCondition,ExtConvCoeffCalc,IntConvCoeffCalc,SunExposure,WindExposure,ViewFactorToGround,ViewFactorToSky,ViewFactorToGround-IR,ViewFactorToSky-IR,#Sides
@@ -161,19 +161,19 @@ Zone Volume Capacitance Multiplier,   1.000 ,   1.000,   1.000,   1.000
 Shading Surfaces,Number of Shading Surfaces,4
 Shading Surface,PANEL0SURF,Detached Shading:Building,,None,,0.0,0.0, ,16.00,16.00,16.00,180.00,0.00,4.00,4.00,,,,,,,,,,,4
 Shading Surface,Mir-PANEL0SURF,Detached Shading:Building,,None,,0.0,0.0, ,16.00,16.00,16.00,0.00,180.00,4.00,4.00,,,,,,,,,,,4
-Shading Surface,SHADER_0,Detached Shading:Building,,None,,0.0,0.0, ,4741.73,4741.73,4741.73,270.00,90.00,68.22,69.51,,,,,,,,,,,4
-Shading Surface,Mir-SHADER_0,Detached Shading:Building,,None,,0.0,0.0, ,4741.73,4741.73,4741.73,90.00,90.00,68.22,69.51,,,,,,,,,,,4
+Shading Surface,SHADER_0,Detached Shading:Building,,None,,0.0,0.0, ,0.72,0.72,0.72,270.00,90.00,68.22,1.06E-002,,,,,,,,,,,4
+Shading Surface,Mir-SHADER_0,Detached Shading:Building,,None,,0.0,0.0, ,0.72,0.72,0.72,90.00,90.00,68.22,1.06E-002,,,,,,,,,,,4
 Zone Surfaces,ZONE_0,10
-HeatTransfer Surface,ZONE_0:F0,Wall,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR WALL (MASS),0.511,0.475,,9.60,16.00,9.60,270.00,90.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,1.00,1.94E-004,4
-HeatTransfer Surface,ZONE_0:F0:W0,Window,ZONE_0:F0,Window5 Detailed Fenestration,90.1-2019 NONRESIDENTIAL CZ 5 GLAZING (OPERABLE),N/A,2.557,No,6.40,6.40,6.40,270.00,90.00,2.53,2.53,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,1.00,1.94E-004,4
-HeatTransfer Surface,ZONE_0:F1,Wall,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR WALL (MASS),0.511,0.475,,9.60,16.00,9.60,180.00,90.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.72,0.28,4
-HeatTransfer Surface,ZONE_0:F1:W0,Window,ZONE_0:F1,Window5 Detailed Fenestration,90.1-2019 NONRESIDENTIAL CZ 5 GLAZING (OPERABLE),N/A,2.557,No,6.40,6.40,6.40,180.00,90.00,2.53,2.53,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.72,0.28,4
-HeatTransfer Surface,ZONE_0:F2,Wall,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR WALL (MASS),0.511,0.475,,9.60,16.00,9.60,90.00,90.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.50,0.50,4
-HeatTransfer Surface,ZONE_0:F2:W0,Window,ZONE_0:F2,Window5 Detailed Fenestration,90.1-2019 NONRESIDENTIAL CZ 5 GLAZING (OPERABLE),N/A,2.557,No,6.40,6.40,6.40,90.00,90.00,2.53,2.53,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.50,0.50,4
-HeatTransfer Surface,ZONE_0:F3,Wall,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR WALL (MASS),0.511,0.475,,9.60,16.00,9.60,0.00,90.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.72,0.28,4
-HeatTransfer Surface,ZONE_0:F3:W0,Window,ZONE_0:F3,Window5 Detailed Fenestration,90.1-2019 NONRESIDENTIAL CZ 5 GLAZING (OPERABLE),N/A,2.557,No,6.40,6.40,6.40,0.00,90.00,2.53,2.53,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.72,0.28,4
+HeatTransfer Surface,ZONE_0:F0,Wall,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR WALL (MASS),0.511,0.475,,9.60,16.00,9.60,270.00,90.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.00,0.00,4
+HeatTransfer Surface,ZONE_0:F0:W0,Window,ZONE_0:F0,Window5 Detailed Fenestration,90.1-2019 NONRESIDENTIAL CZ 5 GLAZING (OPERABLE),N/A,2.557,No,6.40,6.40,6.40,270.00,90.00,2.53,2.53,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.00,0.00,4
+HeatTransfer Surface,ZONE_0:F1,Wall,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR WALL (MASS),0.511,0.475,,9.60,16.00,9.60,180.00,90.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.00,0.00,4
+HeatTransfer Surface,ZONE_0:F1:W0,Window,ZONE_0:F1,Window5 Detailed Fenestration,90.1-2019 NONRESIDENTIAL CZ 5 GLAZING (OPERABLE),N/A,2.557,No,6.40,6.40,6.40,180.00,90.00,2.53,2.53,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.00,0.00,4
+HeatTransfer Surface,ZONE_0:F2,Wall,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR WALL (MASS),0.511,0.475,,9.60,16.00,9.60,90.00,90.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.00,0.00,4
+HeatTransfer Surface,ZONE_0:F2:W0,Window,ZONE_0:F2,Window5 Detailed Fenestration,90.1-2019 NONRESIDENTIAL CZ 5 GLAZING (OPERABLE),N/A,2.557,No,6.40,6.40,6.40,90.00,90.00,2.53,2.53,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.00,0.00,4
+HeatTransfer Surface,ZONE_0:F3,Wall,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR WALL (MASS),0.511,0.475,,9.60,16.00,9.60,0.00,90.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.00,0.00,4
+HeatTransfer Surface,ZONE_0:F3:W0,Window,ZONE_0:F3,Window5 Detailed Fenestration,90.1-2019 NONRESIDENTIAL CZ 5 GLAZING (OPERABLE),N/A,2.557,No,6.40,6.40,6.40,0.00,90.00,2.53,2.53,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.50,0.50,0.00,0.00,4
 HeatTransfer Surface,ZONE_0:F4,Floor,,CTF - ConductionTransferFunction,ZONE_0:F4UNDERGROUNDSLABCF,0.830,0.691,,16.00,16.00,16.00,180.00,180.00,4.00,4.00,0.00,FCGround,N/A-FCGround,ASHRAETARP,NoSun,NoWind,1.00,0.00,1.00,0.00,4
-HeatTransfer Surface,ZONE_0:F5,Roof,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR ROOF (MASS),0.182,0.176,,16.00,16.00,16.00,270.00,0.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.00,1.00,0.44,0.56,4
+HeatTransfer Surface,ZONE_0:F5,Roof,,CTF - ConductionTransferFunction,90.1-2019 NONRESIDENTIAL CZ 5 EXTERIOR ROOF (MASS),0.182,0.176,,16.00,16.00,16.00,270.00,0.00,4.00,4.00,0.00,ExternalEnvironment,DOE-2,ASHRAETARP,SunExposed,WindExposed,0.00,1.00,0.00,0.00,4
 ! <Environment>,Environment Name,Environment Type, Start Date, End Date, Start DayOfWeek, Duration {#days}, Source:Start DayOfWeek,  Use Daylight Saving, Use Holidays, Apply Weekend Holiday Rule,  Use Rain Values, Use Snow Values, Sky Temperature Model
 ! <Environment:Special Days>, Special Day Name, Special Day Type, Source, Start Date, Duration {#days}
 ! <Environment:Daylight Saving>, Daylight Saving Indicator, Source, Start Date, End Date
@@ -184,7 +184,7 @@ Environment:WarmupDays,  7
 ! <Tabular Report>,Style,Unit Conversion, Format Reals
 Tabular Report,COMMA,None,Yes
 ! <Warmup Convergence Information>,Zone Name,Environment Type/Name,Average Warmup Temperature Difference {deltaC},Std Dev Warmup Temperature Difference {deltaC},Max Temperature Pass/Fail Convergence,Min Temperature Pass/Fail Convergence,Average Warmup Load Difference {W},Std Dev Warmup Load Difference {W},Heating Load Pass/Fail Convergence,Cooling Load Pass/Fail Convergence
- Warmup Convergence Information,ZONE_0,RunPeriod: CLIMATE STUDIO,1.8750433305E-015,2.0487847954E-015,Pass,Pass,6.6730716557E-003,1.0004380750E-002,Pass,Pass
+ Warmup Convergence Information,ZONE_0,RunPeriod: CLIMATE STUDIO,2.1711028037E-015,2.1800558429E-015,Pass,Pass,6.1131282182E-003,7.4465577265E-003,Pass,Pass
 ! <Program Control Information:Threads/Parallel Sims>, Threading Supported,Maximum Number of Threads, Env Set Threads (OMP_NUM_THREADS), EP Env Set Threads (EP_OMP_NUM_THREADS), IDF Set Threads, Number of Threads Used (Interior Radiant Exchange), Number Nominal Surfaces, Number Parallel Sims
 Program Control Information:Threads/Parallel Sims, No,1, N/A, N/A, N/A, N/A, N/A, N/A
 End of Data

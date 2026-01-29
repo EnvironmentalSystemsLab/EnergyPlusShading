@@ -1,9 +1,13 @@
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.22 03:11,
+Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.01.22 10:26,
    ************* Beginning Zone Sizing Calculations
    ** Warning ** GetShadowingInput: DetailedSkyDiffuseModeling is chosen but not needed as either the shading transmittance for shading devices does not change throughout the year
    **   ~~~   **  or MinimalShadowing has been chosen.
    **   ~~~   ** Simulation should be set to use SimpleSkyDiffuseModeling, but is left at Detailed for simulation.
    **   ~~~   ** Choose SimpleSkyDiffuseModeling in the ShadowCalculation object to reduce computation time.
+   ** Warning ** CalcSurfaceCentroid: 2 Surfaces have the Z coordinate < 0.
+   **   ~~~   ** ...in any calculations, Wind Speed will be 0.0 for these surfaces.
+   **   ~~~   ** ...in any calculations, Outside temperatures will be the outside temperature + 9.750E-003 for these surfaces.
+   **   ~~~   ** ...that is, these surfaces will have conditions as though at ground level.
    ** Warning ** CheckUsedConstructions: There are 6 nominally unused constructions in input.
    **   ~~~   ** For explicit details on each unused construction, use Output:Diagnostics,DisplayExtraWarnings;
    ** Warning ** processShadowingInput: sunlit fraction schedule not found for PANEL0SURF when using ImportedShading.
@@ -41,7 +45,7 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.22 03:11,
    **   ~~~   **  During Sizing, Environment=EXTREME WINTER WEATHER PERIOD FOR DESIGN, at Simulation time=02/02 23:50 - 24:00
    ** Warning ** Temperature out of range [-100. to 200.] (PsyPsatFnTemp)
    **   ~~~   **  Routine=CalcPurchAirLoads, During Sizing, Environment=EXTREME WINTER WEATHER PERIOD FOR DESIGN, at Simulation time=02/02 23:50 - 24:00
-   **   ~~~   **  Input Temperature=-511.72
+   **   ~~~   **  Input Temperature=-398.24
    ** Warning ** ManageSizing: For a plant sizing run, there must be at least 1 Sizing:Plant object input. SimulationControl Plant Sizing option ignored.
    ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name="COOLING:ELECTRICITY" - not found.
    ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name="HEATING:ELECTRICITY" - not found.
@@ -88,7 +92,7 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.22 03:11,
    *************  **   ~~~   **   This error occurred 1 total times;
    *************  **   ~~~   **   during Warmup 0 times;
    *************  **   ~~~   **   during Sizing 1 times.
-   *************  **   ~~~   **   Max=-511.729996 C  Min=-511.729996 C
+   *************  **   ~~~   **   Max=-398.245728 C  Min=-398.245728 C
    *************
    *************
    ************* ===== Final Error Summary =====
@@ -99,5 +103,5 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.22 03:11,
    ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
-   ************* EnergyPlus Sizing Error Summary. During Sizing: 19 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 35 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  4.87sec
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 20 Warning; 0 Severe Errors.
+   ************* EnergyPlus Completed Successfully-- 36 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  5.74sec
