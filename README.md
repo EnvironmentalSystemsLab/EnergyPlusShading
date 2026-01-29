@@ -81,4 +81,10 @@ cmake -S . -B build -DBUILD_TESTING=ON
 cmake --build build --config Release -j
 
 ./build/Products/Release/energyplus.exe -w ./weather/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out_run ./testfiles/1ZoneUncontrolled.idf
+
+ ./build/Products/Release/energyplus.exe -w ./weather/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out_simulate ./testfiles/DirDiffShadingOverrideTestIdf_25_2.idf
+
+./build/Products/Release/energyplus.exe -w ./weather/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out_using_import ./testfiles/DirDiffShadingOverrideTestIdf_25_2_scheduled.idf
+
+./build/Products/Release/energyplus.exe -w ./weather/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out_using_import_without_shader ./testfiles/DirDiffShadingOverrideTestIdf_25_2_scheduled_noshader.idf
 ```

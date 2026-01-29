@@ -5,7 +5,7 @@ ENTITIES
 999
 DXF created from EnergyPlus
 999
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.01.22 10:26
+Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.01.29 11:36
 999
 Polygon Action,TRIANGULATE3DFACE
 999
@@ -343,7 +343,7 @@ Building Shading
  20
        42.96000
  30
-       -0.80000
+       68.69810
  11
        -3.42840
  21
@@ -361,7 +361,7 @@ Building Shading
  23
       -25.25780
  33
-       -0.80000
+       68.69810
 999
 Building Shading:Mir-SHADER_0
   0
@@ -375,7 +375,7 @@ Building Shading
  20
       -25.25780
  30
-       -0.80000
+       68.69810
  11
        -3.42840
  21
@@ -393,7 +393,7 @@ Building Shading
  23
        42.96000
  33
-       -0.80000
+       68.69810
 999
 ZONE_0:ZONE_0:F0
   0
