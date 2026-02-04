@@ -4904,6 +4904,8 @@ void CalcPerSolarBeam(EnergyPlusData &state,
 
     // Using/Aliasing
 
+    std::cout << "starting: CalcPerSolarBeam" << std::endl;
+
     using WindowComplexManager::InitComplexWindows;
     using WindowComplexManager::UpdateComplexWindows;
 
@@ -5015,6 +5017,7 @@ void CalcPerSolarBeam(EnergyPlusData &state,
     UpdateComplexWindows(state);
 
     // ESL edit start
+    std::cout << "entering ESL edit chunk: CalcPerSolarBeam" << std::endl;
     bool loadedHourlySched = false;
 
     // use dictionary keyed by surface id: importedSchedBySurface[surfNum][timeIndex] = {4 factors}
@@ -5151,7 +5154,7 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state,
 
     // PURPOSE OF THIS SUBROUTINE:
     // This subroutine computes solar gain multipliers for beam solar
-    // std::cout << "FigureSolarBeamAtTimeStep" << std::endl;
+    std::cout << "starting: FigureSolarBeamAtTimestep" << std::endl;
 
     using DataSystemVariables::ShadingMethod;
 
@@ -5219,6 +5222,7 @@ void FigureSolarBeamAtTimestep(EnergyPlusData &state,
         }
     }
     // ESL edit start
+    std::cout << "entering ESL edit chunk: FigureSolarBeamAtTimestep" << std::endl;
     // std::cout << "detailedskydiffuse " << state.dataSysVars->DetailedSkyDiffuseAlgorithm << std::endl;
     // std::cout << "shadingtransmittancevaries " << s_surf->ShadingTransmittanceVaries << std::endl;
     // std::cout << "SolarDistribution " << (state.dataHeatBal->SolarDistribution != DataHeatBalance::Shadowing::Minimal) << std::endl;
@@ -10629,7 +10633,7 @@ void WindowGapAirflowControl(EnergyPlusData &state)
 // ESL: Diffuse Sunlit Fractions
 void SkyDifSolarShading(EnergyPlusData &state)
 {
-    std::cout << "SkyDifSolarShading: Start" << std::endl;
+    std::cout << "starting: SkyDifSolarShading" << std::endl;
     std::cout << "Output External Shading Calculation Results:" << state.dataSysVars->ReportExtShadingSunlitFrac << std::endl;
     // SUBROUTINE INFORMATION:
     //       AUTHOR         Fred Winkelmann
@@ -10769,6 +10773,7 @@ void SkyDifSolarShading(EnergyPlusData &state)
     bool loadedImportedSched = false;
 
     // ESL edit start vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    std::cout << "entering ESL edit chunk: SkyDifSolarShading" << std::endl;
     // if ((state.dataSysVars->shadingMethod == ShadingMethod::Scheduled || state.dataSysVars->shadingMethod == ShadingMethod::Imported) &&
         // !state.dataGlobal->DoingSizing && state.dataGlobal->KindOfSim == Constant::KindOfSim::RunPeriodWeather) {
     if ((state.dataSysVars->shadingMethod == ShadingMethod::Scheduled || state.dataSysVars->shadingMethod == ShadingMethod::Imported)) {

@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 04:56,
+Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.02.04 15:07,
    ************* Beginning Zone Sizing Calculations
    ** Warning ** GetShadowingInput: DetailedSkyDiffuseModeling is chosen but not needed as either the shading transmittance for shading devices does not change throughout the year
    **   ~~~   **  or MinimalShadowing has been chosen.
@@ -104,4 +104,4 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2025.12.17 04:56,
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 20 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 36 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  5.06sec
+   ************* EnergyPlus Completed Successfully-- 36 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  9.02sec
