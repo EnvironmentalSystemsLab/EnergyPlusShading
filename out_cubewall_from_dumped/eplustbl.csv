@@ -1,4 +1,4 @@
-Program Version:,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.02.04 14:51
+Program Version:,EnergyPlus, Version 25.2.0-b8194728e2, YMD=2026.02.05 02:08
 Tabular Output Report in Format: ,Comma
 
 Building:,Building
@@ -12,10 +12,10 @@ Values gathered over      8760.00 hours
 Site and Source Energy
 
 ,,Total Energy [GJ],Energy Per Total Building Area [MJ/m2],Energy Per Conditioned Building Area [MJ/m2]
-,Total Site Energy,107.43,6714.28,6714.28
-,Net Site Energy,95.53,5970.49,5970.49
-,Total Source Energy,236.24,14765.00,14765.00
-,Net Source Energy,198.55,12409.39,12409.39
+,Total Site Energy,106.86,6678.65,6678.65
+,Net Site Energy,94.96,5934.85,5934.85
+,Total Source Energy,234.47,14654.34,14654.34
+,Net Source Energy,196.78,12298.74,12298.74
 
 
 Site to Source Energy Conversion Factors
@@ -47,12 +47,12 @@ Building Area
 End Uses
 
 ,,Electricity [GJ],Natural Gas [GJ],Gasoline [GJ],Diesel [GJ],Coal [GJ],Fuel Oil No 1 [GJ],Fuel Oil No 2 [GJ],Propane [GJ],Other Fuel 1 [GJ],Other Fuel 2 [GJ],District Cooling [GJ],District Heating Water [GJ],District Heating Steam [GJ],Water [m3]
-,Heating,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,44.62,0.00,0.00
-,Cooling,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,2.97,0.00,0.00,0.00
+,Heating,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,44.00,0.00,0.00
+,Cooling,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,3.59,0.00,0.00,0.00
 ,Interior Lighting,0.44,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Exterior Lighting,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Interior Equipment,0.87,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-,Exterior Equipment,0.99,56.66,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+,Exterior Equipment,1.20,55.88,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Fans,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Pumps,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Heat Rejection,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
@@ -62,19 +62,19 @@ End Uses
 ,Refrigeration,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Generators,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,,,,,,,,,,,,,,,
-,Total End Uses,2.30,56.66,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,2.97,45.50,0.00,4.20
+,Total End Uses,2.50,55.88,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,3.59,44.88,0.00,4.20
 Note: District heating water appears to be the principal heating source based on energy usage.
 
 
 End Uses By Subcategory
 
 ,,Subcategory,Electricity [GJ],Natural Gas [GJ],Gasoline [GJ],Diesel [GJ],Coal [GJ],Fuel Oil No 1 [GJ],Fuel Oil No 2 [GJ],Propane [GJ],Other Fuel 1 [GJ],Other Fuel 2 [GJ],District Cooling [GJ],District Heating Water [GJ],District Heating Steam [GJ],Water [m3]
-,Heating,General,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,44.62,0.00,0.00
-,Cooling,General,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,2.97,0.00,0.00,0.00
+,Heating,General,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,44.00,0.00,0.00
+,Cooling,General,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,3.59,0.00,0.00,0.00
 ,Interior Lighting,General,0.44,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Exterior Lighting,General,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Interior Equipment,General,0.87,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-,Exterior Equipment,General,0.99,56.66,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+,Exterior Equipment,General,1.20,55.88,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Fans,General,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Pumps,General,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Heat Rejection,General,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
@@ -89,12 +89,12 @@ End Uses By Subcategory
 End Uses By Space Type
 
 ,,Space Type,Electricity [GJ],Natural Gas [GJ],Gasoline [GJ],Diesel [GJ],Coal [GJ],Fuel Oil No 1 [GJ],Fuel Oil No 2 [GJ],Propane [GJ],Other Fuel 1 [GJ],Other Fuel 2 [GJ],District Cooling [GJ],District Heating Water [GJ],District Heating Steam [GJ],Water [m3]
-,Heating,Unassigned,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,44.62,0.00,0.00
-,Cooling,Unassigned,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,2.97,0.00,0.00,0.00
+,Heating,Unassigned,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,44.00,0.00,0.00
+,Cooling,Unassigned,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,3.59,0.00,0.00,0.00
 ,Interior Lighting,GENERAL,0.44,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Exterior Lighting,Unassigned,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Interior Equipment,GENERAL,0.87,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-,Exterior Equipment,Unassigned,0.99,56.66,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+,Exterior Equipment,Unassigned,1.20,55.88,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Fans,Unassigned,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Pumps,Unassigned,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Heat Rejection,Unassigned,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
@@ -110,18 +110,18 @@ Utility Use Per Conditioned Floor Area
 
 ,,Electricity Intensity [MJ/m2],Natural Gas Intensity [MJ/m2],Gasoline Intensity [MJ/m2],Diesel Intensity [MJ/m2],Coal Intensity [MJ/m2],Fuel Oil No 1 Intensity [MJ/m2],Fuel Oil No 2 Intensity [MJ/m2],Propane Intensity [MJ/m2],Other Fuel 1 Intensity [MJ/m2],Other Fuel 2 Intensity [MJ/m2],District Cooling Intensity [MJ/m2],District Heating Water Intensity [MJ/m2],District Heating Steam Intensity [MJ/m2],Water Intensity [m3/m2]
 ,Lighting,27.44,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-,HVAC,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,185.93,2843.78,0.00,0.26
-,Other,116.16,3540.97,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-,Total,143.59,3540.97,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,185.93,2843.78,0.00,0.26
+,HVAC,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,224.32,2805.20,0.00,0.26
+,Other,128.95,3492.74,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+,Total,156.39,3492.74,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,224.32,2805.20,0.00,0.26
 
 
 Utility Use Per Total Floor Area
 
 ,,Electricity Intensity [MJ/m2],Natural Gas Intensity [MJ/m2],Gasoline Intensity [MJ/m2],Diesel Intensity [MJ/m2],Coal Intensity [MJ/m2],Fuel Oil No 1 Intensity [MJ/m2],Fuel Oil No 2 Intensity [MJ/m2],Propane Intensity [MJ/m2],Other Fuel 1 Intensity [MJ/m2],Other Fuel 2 Intensity [MJ/m2],District Cooling Intensity [MJ/m2],District Heating Water Intensity [MJ/m2],District Heating Steam Intensity [MJ/m2],Water Intensity [m3/m2]
 ,Lighting,27.44,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,
-,HVAC,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,185.93,2843.78,0.00,
-,Other,116.16,3540.97,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,
-,Total,143.59,3540.97,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,185.93,2843.78,0.00,
+,HVAC,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,224.32,2805.20,0.00,
+,Other,128.95,3492.74,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,
+,Total,156.39,3492.74,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,224.32,2805.20,0.00,
 
 
 Electric Loads Satisfied
@@ -129,18 +129,18 @@ Electric Loads Satisfied
 ,,Electricity [GJ],Percent Electricity [%]
 ,Fuel-Fired Power Generation,0.000,0.00
 ,High Temperature Geothermal*,0.000,0.00
-,Photovoltaic Power,11.901,517.99
+,Photovoltaic Power,11.901,475.61
 ,Wind Power,0.000,0.00
 ,Power Conversion,0.000,0.00
 ,Net Decrease in On-Site Storage,0.000,0.00
-,Total On-Site Electric Sources,11.901,517.99
+,Total On-Site Electric Sources,11.901,475.61
 ,,,
-,Electricity Coming From Utility,0.542,23.61
-,Surplus Electricity Going To Utility,10.146,441.59
-,Net Electricity From Utility,-9.60,-418.0
+,Electricity Coming From Utility,0.573,22.90
+,Surplus Electricity Going To Utility,9.972,398.51
+,Net Electricity From Utility,-9.40,-375.6
 ,,,
-,Total On-Site and Utility Electric Sources,2.297,100.00
-,Total Electricity End Uses,2.297,100.00
+,Total On-Site and Utility Electric Sources,2.502,100.00
+,Total Electricity End Uses,2.502,100.00
 
 
 On-Site Thermal Sources
@@ -184,8 +184,8 @@ Comfort and Setpoint Not Met Summary
 
 ,,Facility [Hours]
 ,Time Setpoint Not Met During Occupied Heating,0.00
-,Time Setpoint Not Met During Occupied Cooling,0.00
-,Time Not Comfortable Based on Simple ASHRAE 55-2004,2240.67
+,Time Setpoint Not Met During Occupied Cooling,0.50
+,Time Not Comfortable Based on Simple ASHRAE 55-2004,2210.67
 
 
 Note 1: An asterisk (*) indicates that the feature is not yet implemented.
@@ -195,7 +195,7 @@ FOR:,Entire Facility
 General
 
 ,,Value
-,Program Version and Build,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.02.04 14:51
+,Program Version and Build,EnergyPlus, Version 25.2.0-b8194728e2, YMD=2026.02.05 02:08
 ,RunPeriod,CLIMATE STUDIO
 ,Weather File,Chicago Ohare Intl Ap IL USA TMY3 WMO#=725300
 ,Latitude [deg],41.98
@@ -272,12 +272,12 @@ Values gathered over      8760.00 hours
 Source Energy End Use Components Summary
 
 ,,Source Electricity [GJ],Source Natural Gas [GJ],Source Gasoline [GJ],Source Diesel [GJ],Source Coal [GJ],Source Fuel Oil No 1 [GJ],Source Fuel Oil No 2 [GJ],Source Propane [GJ],Source Other Fuel 1 [GJ],Source Other Fuel 2 [GJ],Source District Cooling [GJ],Source District Heating Water [GJ],Source District Heating Steam [GJ]
-,Heating,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,161.23,0.00
-,Cooling,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,3.14,0.00,0.00
+,Heating,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,159.00,0.00
+,Cooling,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,3.79,0.00,0.00
 ,Interior Lighting,1.39,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Exterior Lighting,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Interior Equipment,2.75,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-,Exterior Equipment,3.14,61.41,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+,Exterior Equipment,3.79,60.58,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Fans,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Pumps,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Heat Rejection,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
@@ -287,19 +287,19 @@ Source Energy End Use Components Summary
 ,Refrigeration,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Generators,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,,,,,,,,,,,,,,
-,Total Source Energy End Use Components,7.28,61.41,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,3.14,164.41,0.00
+,Total Source Energy End Use Components,7.92,60.58,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,3.79,162.18,0.00
 
 
 Normalized Metrics
 Source Energy End Use Components Per Conditioned Floor Area
 
 ,,Source Electricity [MJ/m2],Source Natural Gas [MJ/m2],Source Gasoline [MJ/m2],Source Diesel [MJ/m2],Source Coal [MJ/m2],Source Fuel Oil No 1 [MJ/m2],Source Fuel Oil No 2 [MJ/m2],Source Propane [MJ/m2],Source Other Fuel 1 [MJ/m2],Source Other Fuel 2 [MJ/m2],Source District Cooling [MJ/m2],Source District Heating Water [MJ/m2],Source District Heating Steam [MJ/m2]
-,Heating,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,10077.17,0.00
-,Cooling,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,196.28,0.00,0.00
+,Heating,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,9937.75,0.00
+,Cooling,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,236.81,0.00,0.00
 ,Interior Lighting,86.89,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Exterior Lighting,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Interior Equipment,171.59,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-,Exterior Equipment,196.28,3838.42,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+,Exterior Equipment,236.81,3786.13,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Fans,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Pumps,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Heat Rejection,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
@@ -309,18 +309,18 @@ Source Energy End Use Components Per Conditioned Floor Area
 ,Refrigeration,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Generators,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,,,,,,,,,,,,,,
-,Total Source Energy End Use Components,454.76,3838.42,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,196.28,10275.54,0.00
+,Total Source Energy End Use Components,495.28,3786.13,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,236.81,10136.12,0.00
 
 
 Source Energy End Use Components Per Total Floor Area
 
 ,,Source Electricity [MJ/m2],Source Natural Gas [MJ/m2],Source Gasoline [MJ/m2],Source Diesel [MJ/m2],Source Coal [MJ/m2],Source Fuel Oil No 1 [MJ/m2],Source Fuel Oil No 2 [MJ/m2],Source Propane [MJ/m2],Source Other Fuel 1 [MJ/m2],Source Other Fuel 2 [MJ/m2],Source District Cooling [MJ/m2],Source District Heating Water [MJ/m2],Source District Heating Steam [MJ/m2]
-,Heating,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,10077.17,0.00
-,Cooling,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,196.28,0.00,0.00
+,Heating,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,9937.75,0.00
+,Cooling,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,236.81,0.00,0.00
 ,Interior Lighting,86.89,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Exterior Lighting,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Interior Equipment,171.59,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-,Exterior Equipment,196.28,3838.42,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+,Exterior Equipment,236.81,3786.13,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Fans,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Pumps,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Heat Rejection,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
@@ -330,7 +330,7 @@ Source Energy End Use Components Per Total Floor Area
 ,Refrigeration,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,Generators,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
 ,,,,,,,,,,,,,,
-,Total Source Energy End Use Components,454.76,3838.42,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,196.28,10275.54,0.00
+,Total Source Energy End Use Components,495.28,3786.13,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,236.81,10136.12,0.00
 
 
 ----------------------------------------------------------------------------------------------------
@@ -339,61 +339,61 @@ FOR:,Entire Facility
 Heat Index Hours
 
 ,,Safe (≤ 26.7°C) [hr],Caution (> 26.7°C, ≤ 32.2°C) [hr],Extreme Caution (> 32.2°C, ≤ 39.4°C) [hr],Danger (> 39.4°C, ≤ 51.7°C) [hr],Extreme Danger (> 51.7°C) [hr]
-,ZONE_0,8746.17,13.83,0.00,0.00,0.00
-,Min,8746.17,13.83,0.00,0.00,0.00
-,Max,8746.17,13.83,0.00,0.00,0.00
-,Average,8746.17,13.83,0.00,0.00,0.00
-,Sum,8746.17,13.83,0.00,0.00,0.00
+,ZONE_0,8751.33,8.67,0.00,0.00,0.00
+,Min,8751.33,8.67,0.00,0.00,0.00
+,Max,8751.33,8.67,0.00,0.00,0.00
+,Average,8751.33,8.67,0.00,0.00,0.00
+,Sum,8751.33,8.67,0.00,0.00,0.00
 
 
 Heat Index OccupantHours
 
 ,,Safe (≤ 26.7°C) [hr],Caution (> 26.7°C, ≤ 32.2°C) [hr],Extreme Caution (> 32.2°C, ≤ 39.4°C) [hr],Danger (> 39.4°C, ≤ 51.7°C) [hr],Extreme Danger (> 51.7°C) [hr]
-,ZONE_0,1778.49,3.66,0.00,0.00,0.00
-,Min,1778.49,3.66,0.00,0.00,0.00
-,Max,1778.49,3.66,0.00,0.00,0.00
-,Average,1778.49,3.66,0.00,0.00,0.00
-,Sum,1778.49,3.66,0.00,0.00,0.00
+,ZONE_0,1781.08,1.07,0.00,0.00,0.00
+,Min,1781.08,1.07,0.00,0.00,0.00
+,Max,1781.08,1.07,0.00,0.00,0.00
+,Average,1781.08,1.07,0.00,0.00,0.00
+,Sum,1781.08,1.07,0.00,0.00,0.00
 
 
 Heat Index OccupiedHours
 
 ,,Safe (≤ 26.7°C) [hr],Caution (> 26.7°C, ≤ 32.2°C) [hr],Extreme Caution (> 32.2°C, ≤ 39.4°C) [hr],Danger (> 39.4°C, ≤ 51.7°C) [hr],Extreme Danger (> 51.7°C) [hr]
-,ZONE_0,2855.33,4.67,0.00,0.00,0.00
-,Min,2855.33,4.67,0.00,0.00,0.00
-,Max,2855.33,4.67,0.00,0.00,0.00
-,Average,2855.33,4.67,0.00,0.00,0.00
-,Sum,2855.33,4.67,0.00,0.00,0.00
+,ZONE_0,2858.83,1.17,0.00,0.00,0.00
+,Min,2858.83,1.17,0.00,0.00,0.00
+,Max,2858.83,1.17,0.00,0.00,0.00
+,Average,2858.83,1.17,0.00,0.00,0.00
+,Sum,2858.83,1.17,0.00,0.00,0.00
 
 
 Humidex Hours
 
 ,,Little to no Discomfort (≤ 29) [hr],Some Discomfort (> 29, ≤ 40) [hr],Great Discomfort; Avoid Exertion (> 40, ≤ 45) [hr],Dangerous (> 45, ≤ 50) [hr],Heat Stroke Quite Possible (> 50) [hr]
-,ZONE_0,7329.83,1430.17,0.00,0.00,0.00
-,Min,7329.83,1430.17,0.00,0.00,0.00
-,Max,7329.83,1430.17,0.00,0.00,0.00
-,Average,7329.83,1430.17,0.00,0.00,0.00
-,Sum,7329.83,1430.17,0.00,0.00,0.00
+,ZONE_0,7284.67,1475.33,0.00,0.00,0.00
+,Min,7284.67,1475.33,0.00,0.00,0.00
+,Max,7284.67,1475.33,0.00,0.00,0.00
+,Average,7284.67,1475.33,0.00,0.00,0.00
+,Sum,7284.67,1475.33,0.00,0.00,0.00
 
 
 Humidex OccupantHours
 
 ,,Little to no Discomfort (≤ 29) [hr],Some Discomfort (> 29, ≤ 40) [hr],Great Discomfort; Avoid Exertion (> 40, ≤ 45) [hr],Dangerous (> 45, ≤ 50) [hr],Heat Stroke Quite Possible (> 50) [hr]
-,ZONE_0,1366.92,415.22,0.00,0.00,0.00
-,Min,1366.92,415.22,0.00,0.00,0.00
-,Max,1366.92,415.22,0.00,0.00,0.00
-,Average,1366.92,415.22,0.00,0.00,0.00
-,Sum,1366.92,415.22,0.00,0.00,0.00
+,ZONE_0,1360.90,421.24,0.00,0.00,0.00
+,Min,1360.90,421.24,0.00,0.00,0.00
+,Max,1360.90,421.24,0.00,0.00,0.00
+,Average,1360.90,421.24,0.00,0.00,0.00
+,Sum,1360.90,421.24,0.00,0.00,0.00
 
 
 Humidex OccupiedHours
 
 ,,Little to no Discomfort (≤ 29) [hr],Some Discomfort (> 29, ≤ 40) [hr],Great Discomfort; Avoid Exertion (> 40, ≤ 45) [hr],Dangerous (> 45, ≤ 50) [hr],Heat Stroke Quite Possible (> 50) [hr]
-,ZONE_0,2223.67,636.33,0.00,0.00,0.00
-,Min,2223.67,636.33,0.00,0.00,0.00
-,Max,2223.67,636.33,0.00,0.00,0.00
-,Average,2223.67,636.33,0.00,0.00,0.00
-,Sum,2223.67,636.33,0.00,0.00,0.00
+,ZONE_0,2212.50,647.50,0.00,0.00,0.00
+,Min,2212.50,647.50,0.00,0.00,0.00
+,Max,2212.50,647.50,0.00,0.00,0.00
+,Average,2212.50,647.50,0.00,0.00,0.00
+,Sum,2212.50,647.50,0.00,0.00,0.00
 
 
 Heating SET Degree-Hours
@@ -437,31 +437,31 @@ Hours of Safety for Heat Events
 Unmet Degree-Hours
 
 ,,Cooling Setpoint Unmet Degree-Hours [°C·hr],Cooling Setpoint Unmet Occupant-Weighted Degree-Hours [°C·hr],Cooling Setpoint Unmet Occupied Degree-Hours [°C·hr],Heating Setpoint Unmet Degree-Hours [°C·hr],Heating Setpoint Unmet Occupant-Weighted Degree-Hours [°C·hr],Heating Setpoint Unmet Occupied Degree-Hours [°C·hr]
-,ZONE_0,0.08,0.07,0.08,0.00,0.00,0.00
-,Min,0.08,0.07,0.08,0.00,0.00,0.00
-,Max,0.08,0.07,0.08,0.00,0.00,0.00
-,Average,0.08,0.07,0.08,0.00,0.00,0.00
-,Sum,0.08,0.07,0.08,0.00,0.00,0.00
+,ZONE_0,0.27,0.23,0.27,0.00,0.00,0.00
+,Min,0.27,0.23,0.27,0.00,0.00,0.00
+,Max,0.27,0.23,0.27,0.00,0.00,0.00
+,Average,0.27,0.23,0.27,0.00,0.00,0.00
+,Sum,0.27,0.23,0.27,0.00,0.00,0.00
 
 
 Discomfort-weighted Exceedance OccupantHours
 
 ,,Very-cold Exceedance OccupantHours [hr],Cool Exceedance OccupantHours [hr],Warm Exceedance OccupantHours [hr],Very-hot Exceedance OccupantHours [hr]
-,ZONE_0,0.00,494.58,64.38,0.00
-,Min,0.00,494.58,64.38,0.00
-,Max,0.00,494.58,64.38,0.00
-,Average,0.00,494.58,64.38,0.00
-,Sum,0.00,494.58,64.38,0.00
+,ZONE_0,0.00,445.48,96.28,0.00
+,Min,0.00,445.48,96.28,0.00
+,Max,0.00,445.48,96.28,0.00
+,Average,0.00,445.48,96.28,0.00
+,Sum,0.00,445.48,96.28,0.00
 
 
 Discomfort-weighted Exceedance OccupiedHours
 
 ,,Very-cold Exceedance OccupantHours [hr],Cool Exceedance OccupantHours [hr],Warm Exceedance OccupantHours [hr],Very-hot Exceedance OccupantHours [hr]
-,ZONE_0,0.00,836.67,96.89,0.00
-,Min,0.00,836.67,96.89,0.00
-,Max,0.00,836.67,96.89,0.00
-,Average,0.00,836.67,96.89,0.00
-,Sum,0.00,836.67,96.89,0.00
+,ZONE_0,0.00,763.12,144.15,0.00
+,Min,0.00,763.12,144.15,0.00
+,Max,0.00,763.12,144.15,0.00
+,Average,0.00,763.12,144.15,0.00
+,Sum,0.00,763.12,144.15,0.00
 
 
 ----------------------------------------------------------------------------------------------------

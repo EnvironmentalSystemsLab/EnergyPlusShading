@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.02.04 14:51,
+Program Version,EnergyPlus, Version 25.2.0-b8194728e2, YMD=2026.02.05 02:08,
    ************* Beginning Zone Sizing Calculations
    ** Warning ** GetShadowingInput: DetailedSkyDiffuseModeling is chosen but not needed as either the shading transmittance for shading devices does not change throughout the year
    **   ~~~   **  or MinimalShadowing has been chosen.
@@ -41,7 +41,7 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.02.04 14:51,
    **   ~~~   **  During Sizing, Environment=EXTREME WINTER WEATHER PERIOD FOR DESIGN, at Simulation time=02/02 23:50 - 24:00
    ** Warning ** Temperature out of range [-100. to 200.] (PsyPsatFnTemp)
    **   ~~~   **  Routine=CalcPurchAirLoads, During Sizing, Environment=EXTREME WINTER WEATHER PERIOD FOR DESIGN, at Simulation time=02/02 23:50 - 24:00
-   **   ~~~   **  Input Temperature=-511.72
+   **   ~~~   **  Input Temperature=-512.48
    ** Warning ** ManageSizing: For a plant sizing run, there must be at least 1 Sizing:Plant object input. SimulationControl Plant Sizing option ignored.
    ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name="COOLING:ELECTRICITY" - not found.
    ** Warning ** Output:Meter:MeterFileOnly: invalid Key Name="HEATING:ELECTRICITY" - not found.
@@ -88,7 +88,7 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.02.04 14:51,
    *************  **   ~~~   **   This error occurred 1 total times;
    *************  **   ~~~   **   during Warmup 0 times;
    *************  **   ~~~   **   during Sizing 1 times.
-   *************  **   ~~~   **   Max=-511.729996 C  Min=-511.729996 C
+   *************  **   ~~~   **   Max=-512.481750 C  Min=-512.481750 C
    *************
    *************
    ************* ===== Final Error Summary =====
@@ -100,4 +100,4 @@ Program Version,EnergyPlus, Version 25.2.0-86d47d0ce1, YMD=2026.02.04 14:51,
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 19 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 35 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  5.44sec
+   ************* EnergyPlus Completed Successfully-- 35 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  5.78sec
